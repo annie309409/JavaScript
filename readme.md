@@ -285,8 +285,24 @@ j=121322456465456465487879874456456456454564654646465464646545555555555555555555
    
    document.write(`10 / 3= ${ x / y}<br>10 % 3= ${ x % y}<br>10 ** 3= ${ x ** y}`)
 ```
+
 >결과 <br>
 >![결과이미지](img/result8.png)
+
+
+
+아래와 같이 문자열+숫자 , boolean, null, undefined같은 계산 가능
+```javascript
+   document.write(`'1' + 2 = ${ '1' + 2 }<br>`);
+   document.write(`1 + true = ${ 1 + true }<br>`);
+   document.write(`true + null = ${  true + null }<br>`);
+   document.write(`false + null = ${  false + null }<br>`);
+   document.write(`true + false = ${  true + false }<br>`);
+   document.write(`false + undefined = ${ undefined + false }<br>`);
+```
+>결과 <br>
+>![결과이미지](img/result11.png)
+
 
 ##### 증감연산자 
 증감연산자의 위치에 따라 전치/후치로 나뉨
@@ -314,14 +330,5 @@ j=121322456465456465487879874456456456454564654646465464646545555555555555555555
 
 #### 복합 할당연산자 
 할당 연산자와 산술 연산자를 혼합해서 표현식을 간단하게 작성하는데 사용		
-```javascript
-   document.write(`'1' + 2 = ${ '1' + 2 }<br>`);
-   document.write(`1 + true = ${ 1 + true }<br>`);
-   document.write(`true + null = ${  true + null }<br>`);
-   document.write(`false + null = ${  false + null }<br>`);
-   document.write(`true + false = ${  true + false }<br>`);
-   document.write(`false + undefined = ${ undefined + false }<br>`);
-```
->결과 <br>
->![결과이미지](img/result11.png);
+
 
