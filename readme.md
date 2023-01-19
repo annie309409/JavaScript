@@ -317,8 +317,11 @@ j=121322456465456465487879874456456456454564654646465464646545555555555555555555
 ```javascript
    document.write(`'1' + 2 = ${ '1' + 2 }<br>`);
    document.write(`1 + true = ${ 1 + true }<br>`);
+   document.write(`true + null = ${  true + null }<br>`);
+   document.write(`false + null = ${  false + null }<br>`);
    document.write(`true + false = ${  true + false }<br>`);
    document.write(`false + undefined = ${ undefined + false }<br>`);
 ```
 >결과 <br>
 >![결과이미지](img/result11.png)
+
