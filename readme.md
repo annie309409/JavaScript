@@ -11,7 +11,7 @@
    3. [숫자형](#숫자) 
    4. [문자형](#문자)
    5. [참/거짓](#Boolean)
-   6. 객체형
+   6. [객체형](#객체형--object-)
 
 # 자바스크립트 사용법
 ## 개요
@@ -220,3 +220,30 @@ j=121322456465456465487879874456456456454564654646465464646545555555555555555555
 ![결과이미지](img/result4.png)
 
 ## Boolean
+ 논리형의 일종으로 true,false 등의 논리값만 존재하며, 주로 긍정, 부정을 나타내는 값에 사용한다.
+
+```javascript
+   let isMarried =  false;
+   (isMarried) ? 'u r married' : 'u r single';
+```
+![결과이미지](img/result6.png);
+
+## 객체형(Object)
+변수 하나에 여러 종류의 데이터를 담을 수 있다. 
+> 예시 ) 이름, 국어, 영어, 수학에 대하여 이름, 총점, 평균 계산 후 출력
+```javascript
+   let info = {
+      name: '둘리',
+      math: 90,
+      kor: 20,
+      eng: 50,
+      totlPnt: function(){document.write(`총점: ${this.math+this.kor+this.eng} <br>`)},
+      avgs:function(){ return (this.math+this.kor+this.eng)/3 ;}
+    }
+
+   document.write(`이름: ${info.name} <br>`);
+   info.totlPnt();
+   document.write(`평균: ${~~info.avgs()} <br>`);
+```
+결과 
+![결과이미지](img/result7.png)
