@@ -8,6 +8,10 @@
 2. [자바스크립트 자료형](#자바스크립트-자료형)
    1. [변수](#변수--variable-)
    2. [상수](#상수--constant-)
+   3. [숫자형](#숫자) 
+   4. [문자형](#문자)
+   5. [참/거짓](#Boolean)
+   6. 객체형
 
 # 자바스크립트 사용법
 ## 개요
@@ -94,7 +98,7 @@ console.log("helo world!!");
       document.write(`let a 의 값은 ${a} <br>`);
 
 ```
-let a의 경우 하단과 같은 오류 발생
+let a의 경우 하단과 같은 오류 발생<br>
 ![오류이미지](./img/error.png)
 
 >변수 선언시 var이나 let(ES6에서 추가)을 사용
@@ -102,8 +106,13 @@ let a의 경우 하단과 같은 오류 발생
 자바스크립트에서는 각 문장의 끝은 ;으로 마무리해야 함
 
 >변수에 내용 없이 실행하면 undifiend가 출력됨.
->> 예시)
-
+```javascript
+   var z;
+   let a;
+   document.write(`var z 의 값은 ${z} <br>`);
+   document.write(`let a 의 값은 ${a} <br>`);
+```
+![결과이미지](img/result5.png)
 
 ### 상수(constant)
 * 변하지 않는 값을 담는 그릇
@@ -123,4 +132,91 @@ let a의 경우 하단과 같은 오류 발생
 
 ```
 
+## 숫자 
+### Numnber
+* 정수, 실수등을 다룰 수 있음
+* 일반적인 숫자 외에 추가적으로 NaN(not a number), infinity/-infinity 등의 특수 수자값 사용가능 
+```javascript
+   let o=1;
+   document.write(`y / 0 =${ o / 0}<br>`);
+   let k ='hello';
+   document.write(`y * k =${ o * k}<br>`);
+```
+결과<br>
+![결과이미지](img/infinite.png)
+ 
 
+
+### Bigint
+* 기존 정수보다 더 많은범위를 다룰 수 있음
+
+```javascript
+   let j = 12132245646545646548787987445645645645456465464646546464654555555555555555555555546545646546546464;
+   document.write(`완전 큰 숫자${j}<br>`);
+   
+   j= BigInt(1213224564654564654878798744564564564545646546464654646465455555555555555555555554654564654654646412132245646545646548787987445645645645456465464646546464654555555555555555555555546545646546546464)
+   document.write(`완전 큰 숫자${j}<br>`);
+```
+결과 <br>
+![결과이미지](img/infinite2.png)
+
+* Bigint는 아래와 같이 숫자 끝에 n을 붙여도 됨.
+```javascript
+j=1213224564654564654878798744564564564545646546464654646465455555555555555555555554654564654654646412132245646545646548787987445645645645456465464646546464654555555555555555555555546545646546546464n
+   document.write(`완전 큰 숫자${j}<br>`)
+```
+결과 <br>
+ ![결과이미지](img/infinite3.png)
+
+
+## 문자
+> 단일문자나 단일문자가 어려개모인 문자열을 다룰때 사용
+> 문자열을 정의할때는 ' '," ",\` \` 등을 이용함
+
+```javascript
+   let say1= 'hello!';
+   let say2= "hello!";
+   let say3= `hello!`;
+   
+   console.log(say1);
+   console.log(say2);
+   console.log(say3);
+    
+```
+위의 문자열들을 한번에 합칠때는 아래와 같이 사용한다.
+```javascript
+   let say1= 'hello!';
+   let say2= "hello!";
+   let say3= `hello!`;
+   
+   console.log(say1+say2+say3);
+   console.log(say1+say2+say3);
+    
+```
+결과<br>
+ ![결과이미지](img/result1.png)<br>
+
+이 중에서 백틱(``)의 경우는 연산자 없이 한번에 작성이 가능하다.
+백틱의 경우엔, 선언된 변수를 ${안에 담으면 된다.}
+```javascript
+   let say1= 'hello';
+   let name= "고길동";
+   let cha3= `둘리`;
+   
+   console.log(`${say1}!${name}님! 저는 ${cha3}입니다.`);
+```
+결과
+![결과이미지](img/result2.png)
+
+문자는 다음과 같이 배열처럼 지정 위치를 선택할 수 있다
+```javascript
+   let jumin= '230119-212312';
+
+   (jumin[7] === '2') ? jumin='여성':jumin='남성';
+   document.write(`해당주민번호 성별은: ${jumin}`);
+   
+```
+![결과이미지](img/result3.png) <br>
+![결과이미지](img/result4.png)
+
+## Boolean
