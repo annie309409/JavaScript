@@ -323,5 +323,5 @@ j=121322456465456465487879874456456456454564654646465464646545555555555555555555
    document.write(`false + undefined = ${ undefined + false }<br>`);
 ```
 >결과 <br>
->![결과이미지](img/result11.png)
+>![결과이미지](img/result11.png);
 
