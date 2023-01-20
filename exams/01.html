@@ -50,7 +50,7 @@
     draw(0,0,4,0);
     draw(0,2,1,2);
     document.write(`${'&nbsp'.repeat(8)+'_'.repeat(8)}<br>`);
-
+    document.write('<br>'.repeat(5));
 
     let gj = 15;
     document.write('<div class="jungle">');
@@ -89,8 +89,31 @@
         name : '음식나라',
         menu : ['소주','너나치킨'],
         price :  [3000, 12000],
-
+        odrs :[2,1],
+        ttl :function(){return this.price[0]*this.odrs[0]+this.price[1]*this.odrs[1]},
     }
+    document.write('<br>'.repeat(5));
+    document.write(`[ ${foodStore.name} ]`);
+    document.write('<br>');
+    document.write(` ${' - '.repeat(20)} <br>`);
+    document.write(` ${foodStore.menu[0]+blank.repeat(5)+foodStore.odrs[0]+blank.repeat(5)+foodStore.price[0]*foodStore.odrs[0]} `);
+    document.write('<br>');
+    document.write(` ${foodStore.menu[1]+blank.repeat(1)+foodStore.odrs[1]+blank.repeat(5)+foodStore.price[1]*foodStore.odrs[1]} `);
+    document.write('<br>');
+    document.write(` ${' - '.repeat(20)} <br>`);
+    document.write(` 과세합계${blank.repeat(7)+foodStore.ttl()*0.9} `);
+    document.write('<br>');
+    document.write(` 부가세${blank.repeat(9)+foodStore.ttl()*0.1} `);
+    document.write('<br>');
+    document.write(` ${' - '.repeat(20)} <br>`);
+    document.write(` 총합계${blank.repeat(9)+foodStore.ttl()} `);
+    document.write('<br>');
+    document.write(` 받은금액${ blank.repeat(7)+50000} `);
+    document.write('<br>');
+    document.write(` 잔돈${blank.repeat(11)+ (50000 - foodStore.ttl())} `);
+    document.write('<br>');
+    document.write(` ${' - '.repeat(20)} <br>`);
+    document.write('2014. 07. 07 14:35:24');
 </script>
 </body>
 </html>
