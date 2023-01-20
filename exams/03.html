@@ -78,7 +78,9 @@
                 }
             }
             ch.forEach((e,idx)=>{
-                document.write(`${left[idx]}원짜리 ${e}장<br>`);
+                (idx >= left.length / 2)?
+                document.write(`${left[idx]}원짜리 ${e}개<br>`):
+                document.write(`${left[idx]}원짜리 ${e}장<br>`)
             });
         }else{
             document.write(`손님, 거슬러줄게 없어요 . 돈 더내세요!😥`);
