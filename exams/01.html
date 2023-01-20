@@ -61,7 +61,7 @@
                 document.write(`${bl}`);
             }else{
                 if(i%2 === 0){
-                    (j%5===0)? document.write(`${bl}l`): document.write(bl);
+                    (j%5===0)? document.write(`${bl}|`): document.write(bl);
                 }else{
                     (j%5==0) ? document.write('+'):document.write('-');
                 }
@@ -74,15 +74,15 @@
 
     document.write('<div>')
     document.write('<br>'.repeat(4));
-    document.write(`${blank.repeat(4)+'^--^'}`)
+    document.write(`${blank.repeat(4)+' ^--^'+blank.repeat(6)+'-'.repeat(5)}`)
     document.write('<br>');
-    document.write(`${blank.repeat(3)}(${blank.repeat(1)}'${blank.repeat(2)}'${blank.repeat(1)})`)
+    document.write(`${blank.repeat(3)}(${blank.repeat(1)}'${blank.repeat(2)}'${blank.repeat(1)})${blank.repeat(3)+'/'}`)
     document.write('<br>');
     document.write(`${blank.repeat(3)}(${blank.repeat(2)}-${blank.repeat(1)}${blank.repeat(1)})`);
     document.write('<br>');
-    document.write(`${blank.repeat(4)}|${blank.repeat(1)}|${blank.repeat(1)}|`)
+    document.write(`${blank.repeat(4)}|${blank.repeat(1)} | ${blank.repeat(1)}|`)
     document.write('<br>');
-    document.write(`${blank.repeat(3)}(__.|__.)${blank.repeat(1)}`)
+    document.write(`${blank.repeat(3)}(__|__)${blank.repeat(1)}`)
 
     let foodStore={
         name : '음식나라',
