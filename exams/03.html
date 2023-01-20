@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>EXAM</title>
+</head>
+<body>
+    <button onclick="TimeTime()">시간계산기</button> <br>
+    <button onclick="BookInfo()">도서 정보 출력기</button> <br>
+    <button onclick="Charge()">잔돈계산기</button>
+  <script>
+<!--  14번 -->
+
+    function TimeTime(){
+        let [day, hr, sec] =[86400,3600,60];
+        let calcs = parseInt(prompt('1234567890,98765,12345 중 하나를 입력해주세요','1234567890,98765,12345'));
+        calcs === 1234567890 ? document.write(`당신이 입력한 초는 ${~~(calcs/day)}일 입니다.<br>`)
+        : calcs === 98765 ? document.write(`당신이 입력한 초는 ${~~(calcs/hr)}시간 입니다.<br>`)
+        : calcs === 12345 ? document.write(`당신이 입력한 초는 ${~~(calcs/sec)}분 입니다.<br>`)
+        : false;
+        document.write('<br>'.repeat(2));
+        document.write(`다른걸 시도하려면 새로고침(F5)!`);
+    }
+
+    function BookInfo(){
+        let label ='도서명 저자 역자 출판사 출간일 정가 판매가 할인율 적립금';
+        label = label.split(' ');
+        console.log(label);
+        let info={
+            bookname : '누구나 알기쉬운 자바: 입문편',
+            author : '카와바 다케시',
+            trans : '하진일',
+            publish : '혜지원',
+            pubdate :'2014.06',
+            price : 22500,
+            priceDis : 22500 * 0.9,
+            discount : '10%',
+            mileage : 22500 * 0.1
+        }
+        label.forEach((e,idx)=>{
+            document.write(`${e} : ${Object.values(info)[idx]}<br>`);
+        });
+        document.write('<br>'.repeat(2));
+        document.write(`다른걸 시도하려면 새로고침(F5)!`);
+    }
+
+    function Charge(){
+        let [m1,m2]=[prompt('총금액을 입력하세요'),prompt('손님이 낸 돈을 입력하세요')];
+        let left = [50000,10000,5000,1000,500,100,50,10];
+        let ch1 = m2-m1;
+        let ch = [];
+
+        if(ch1 >= 0){
+            for(let  i = 0; i <left.length; i++){
+                if((left[i] % ch1) === 0 ){
+                    ch.push(~~(ch1 / left[i]));
+                }else{
+                    ch.push(~~(ch1 / left[i]));
+                    ch1 = ch1 % left[i];
+                }
+            }
+            ch.forEach((e,idx)=>{
+                document.write(`${left[idx]}원짜리 ${e}개<br>`);
+            });
+        }else{
+            document.write(`손님, 거슬러줄게 없어요 . 돈 더내세요!😥`);
+        }
+        document.write('<br>'.repeat(2));
+        document.write(`다른걸 시도하려면 새로고침(F5)!`);
+    }
+
+
+  </script>
+</body>
+</html>
