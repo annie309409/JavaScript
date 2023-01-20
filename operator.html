@@ -50,8 +50,8 @@
             type.push(Number(prompt(`${e}를 입력해주세요`)));
           });
           document.write(`<h2>성적처리 프로그램 V2</h2>`);
-
-          ttl = type.reduce((p,n)=>p+n);
+          ttl= +type[0]+ +type[1] + +type[2];
+          // ttl = type.reduce((p,n)=>p+n);
           avg = ttl/(type.length);
 
           (avg>=90 && avg <= 100)?sco='수':(avg >= 80)?sco='우':(avg >= 70)?sco='미':(avg >= 60)?sco='양':(avg >= 0)?sco='가':sco='학점 산출 불가! 각 과목별 점수는 100점이하 및 숫자로만 입력해주세요!';
