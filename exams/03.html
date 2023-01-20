@@ -12,9 +12,9 @@
 <!--  14번 -->
 
     function TimeTime(){
-        let tran =[86400,3600,60];
+        let tran =[86400,3600,60,1];
         let res = [];
-        let label = '일 시간 분'.split(' ');
+        let label = '일 시간 분 초'.split(' ');
         let calc = Number(prompt('초를 입력해주세요!'));
         if(calc > 0){
             tran.forEach((e,idx)=>{
@@ -25,7 +25,7 @@
                    res.push(~~(calc / e));
                    calc = calc % e;
                }
-                document.write(`${res[idx] + label[idx]}<br>`);
+                document.write(`${res[idx] + label[idx]} `);
             })
         }else{
         document.write(`계산할 수 없는 숫자에요.`);
@@ -40,7 +40,7 @@
         label = label.split(' ');
         console.log(label);
         let info={
-            bookname : '누구나 알기쉬운 자바: 입문편',
+            bookname : '누구나 알기쉬운 자바 : 입문편',
             author : '카와바 다케시',
             trans : '하진일',
             publish : '혜지원',
@@ -65,6 +65,7 @@
         document.write(`총 지불금액 : ${m1}<br>`);
         document.write(`받은돈 : ${m2}<br>`);
         document.write(`거스름돈 : ${ch1}<br>`);
+        document.write('*'.repeat(30)+'<br>');
 
         if(ch1 >= 0){
             for(let  i = 0; i <left.length; i++){
