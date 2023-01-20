@@ -11,6 +11,8 @@
    4. [문자형](#문자)
    5. [참/거짓](#Boolean)
    6. [객체형](#객체형--object-)
+   7. [자료형 파악하기](#변수의-자료형)
+   8. [자료형 변환하기](#자료형-변환)
 
 3. [자바스크립트 연산자](#자바스크립트-연산자)
    1. [할당연산자](#할당연산자)
@@ -259,6 +261,43 @@ j=121322456465456465487879874456456456454564654646465464646545555555555555555555
 >결과 <br>
 >![결과이미지](img/result7.png)
 
+
+## 변수의 자료형
+### typeof()
+```javascript
+typeof(10);
+typeof('10');
+typeof(10n);
+typeof(undefined);
+typeof(null);
+typeof(true);
+typeof(function(){});
+typeof(nan = {});
+```
+>결과 <br>
+>![결과이미지](img/result20.png)
+
+## 자료형 변환
+### 묵시적 형번환
+함수와 연산자에 전달되는 값은 표현식에 적합하게 적절한 자료형으로변환됨 (묵시적형변환)
+### 명시적 형변환
+상황에따라 의도를 갖고 원하는 자료형으로 직접 변환하는경우도있음(명시적형변환)
+
+```javascript
+let strNum = '22';
+let num = 22;
+let tf = 1;
+
+Number(strNum);
+String(num);
+Boolean(tf);
+```
+
+>결과 <br>
+>![결과이미지](img/result21.png)
+
+
+
 # 자바스크립트 연산자
 ##  표현식(expression)
 리터럴(값),식별자(변수),연산자, 함수 호출등의 조합을 의미.<br>
@@ -408,12 +447,32 @@ boolean표현식에 대한 논리합(||) 또는 논리곱(&&) 또는 부정 연�
 
 연산자 | 설명                     
 ---|------------------------
-A && B | A조건과 B조건을 모두 포함할때 true 반환
+A && B | A조건과 B조건을 모두 충족할때 true 반환(앞 조건식에서 false가 나오면 바로 false 반환)
+A & B | A조건과 B조건을 모두 충족할때 true 반환(앞 조건식이 false여도 뒤의 조건식이 true인지 false인지 판단을 함 )
 A ll B | A조건과 B조건중 하나라도 true일때 true 반환 
+A ll B ll C | A조건과 B조건중에 첫번째 true일때 ture 반환 
 
+> short circuit evaluate : 단축식 평가라고도 함 
 ```javascript
 true || false;
 true && false; 
+true || false || true;
 ```
 >결과 <br>
 >![결과이미지](img/result17.png)
+
+```javascript
+// OR일때
+undefined || 1
+null || 1
+// AND일때
+undefined && 1
+null && 1
+
+// AND구분 
+null &  1 &  undefined;
+null &&  1 &&  undefined;
+```
+>결과 <br>
+>![결과이미지](img/result19.png)
+

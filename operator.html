@@ -31,8 +31,15 @@
 
         x=1;
         x=x+1;
-        document.write(`x=x+1 : ${x}`)
+        document.write(`x=x+1 : ${x}<br>`)
+        document.write(`${'-'.repeat(20)}<br>`)
 
+  // 나이계산
+      let birthday = prompt('생년의 연도는?');
+      let age= 2023 - birthday + 1 ;
+      document.write(`당신은 ${birthday}년도에 태어났습니다!`);
+      document.write('<br>');
+      document.write(`당신의 나이는 :  ${age} 살 입니다.`);
   </script>
 </body>
 </html>
