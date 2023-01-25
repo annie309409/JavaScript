@@ -572,5 +572,52 @@ null &&  1 &&  undefined;
 
 ## 중첩조건문
 * if나 else안에 또다른 if나 else를 추가하는것
+* 단점: 가독성이 떨어지므로 코드의 사용 자제
+```javascript
+    // 특정년도의 윤년여부를 출력 v2
+    // 조건1 : 4로 나누어 떨어짐
+    // 조건2 : 4로 나누어 떨어지고 100으로도 나눠 떨어지면 평년
+    // 조건3 : 400으로 나눠떨어지면 윤년
+   
+    year = parseInt(prompt('년도를 입력해주세요'));
+    let result2 = `${year}- 평년입니다.`;
+    if(year % 4 === 0){
+        if( year % 100 !=0){
+        result2=`${year} - 윤년입니다.`;
+        }else{
+        result2=`${year} - 평년입니다.`;
+        }
+    }else{
+        if(year % 400 ===0){
+            result2=`${year} - 윤년입니다.`;
+        }else{
+            result2=`${year} - 평년입니다.`;
+        }
+    }
+   
+    document.write(result2);
+```
+>결과 <br>
+>![결과이미지](img/result26.png)
+
+## 다중조건문
+* 다중조건에 대한 만족여부에 따라 if ~ else if ~ else 형식으로 사용.
+```javascript
+// 평균점수에 따라서 수우미양가 결과를 출력하는 학점 계산기
+    let avg = prompt('학점을 입력해주세요!');
+    let sco = '';
+
+    if(avg>=90 && avg <= 100 ) {sco='수'}
+        else if(avg >= 80){sco='우'}
+        else if(avg >= 70 ){sco='미'}
+        else if(avg >= 60 ){sco='양'}
+        else if( avg >= 0) {sco='가'}
+        else{ sco='학점 산출 불가! 각 과목별 점수는 100점이하 및 숫자로만 입력해주세요!';}
+
+    document.write(sco);
+```
+>결과 <br>
+>![결과이미지](img/result27.png)
 
 
+ 
