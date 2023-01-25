@@ -1,4 +1,4 @@
-## ✍자바스크립트 기초
+## [✍자바스크립트 기초 ](https://github.com/annie309409/JavaScript/wiki/JavaScriptBasic)
 <details open>
 <summary>자바스크립트 사용방법</summary>
 
@@ -49,4 +49,4 @@
 
 </details>
 
-## ⚙ 자바스크립트 알고리즘
+## [⚙ 자바스크립트 알고리즘](https://github.com/annie309409/JavaScript/wiki/algorithm)
