@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+    // 1부터 100까지 짝수
+    let arr = [];
+
+    // for(let i = 1;  i<=100 ;i++){
+    //     (i%2===0) ? arr.push(i):false;
+    // }
+    // document.write(arr+'<br>');
+
+    // 효율적 방법 > v2
+
+    for(let i = 0;  i<=100 ;i+=2){
+        i ==0 ? false: arr.push(i);
+    }
+    document.write(arr+'<br>');
+
+    // 효율적 방법 > v2
+    // big-O location > 실행횟수에 대한 지수
+
+
+    // 1~100까지 정수의 총합 출력
+    let num = [1,1234];
+    let num2 =0;
+    let num3 =0;
+    for(let i=0; i<num.length; i++){
+      num2 +=num[i];
+    }
+    num2 = num2 * (num2-1)/2;
+    document.write(num2);
+    for(let i = 0;  i<=1234 ;i++){
+        num3 += i;
+    }
+    console.log(num3);
+    </script>
+</body>
+</html>
