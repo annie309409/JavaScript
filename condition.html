@@ -3,6 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        let hj= parseInt(prompt('숫자를 입력하세요'));
+        if(hj % 2 === 0){
+            console.log('짝수입니다.')
+        }else{
+            console.log('홀수입니다.')
+        }
+
+        let time  = prompt('시간을 입력해주세요 09:53:12');
+        if(parseInt(time.slice(0,2)) >= 12){
+            console.log('오후입니다.');
+        }else{
+            console.log('오전입니다.');
+        }
+    </script>
 </head>
 <body>
 

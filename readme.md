@@ -537,9 +537,32 @@ null &&  1 &&  undefined;
     let jumsu = 60;
     if(jumsu >= 60){
         console.log('합격');
+    }
+```
+>결과 <br>
+>![결과이미지](img/result25.png)
+
+
+### else 
+* 조건을 만족하면 if아래의 코드블록을 실행하고, 만족하지 않을경우 else 아래의 코드블록을 실행한다.
+```javascript
+   if(조건식){
+       참일때 실행
+   }else{
+       거짓일때 실행
+   }
+```
+
+```javascript
+   //점수가 60점 이상이면 합격을 출력
+    let jumsu = 60;
+    if(jumsu >= 60){
+        console.log('합격');
     }else{
         console.log('불합격');
     }
 ```
 >결과 <br>
 >![결과이미지](img/result24.png)
+
+
