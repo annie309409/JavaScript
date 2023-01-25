@@ -4,20 +4,98 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script>
-        let hj= parseInt(prompt('숫자를 입력하세요'));
-        if(hj % 2 === 0){
-            console.log('짝수입니다.')
-        }else{
-            console.log('홀수입니다.')
-        }
+    let hj=212313132;
+    if(hj % 2 === 0){
+        console.log('짝수입니다.')
+    }else{
+        console.log('홀수입니다.')
+    }
 
-        let time  = prompt('시간을 입력해주세요 09:53:12');
-        if(parseInt(time.slice(0,2)) >= 12){
-            console.log('오후입니다.');
+    let time  = '15:47:40';
+    let hour = parseInt(time.slice(0,2));
+    if(hour >= 12){
+        console.log('오후입니다.');
+    }else{
+        console.log('오전입니다.');
+    }
+
+    //  특정 년도에 윤년여부를 출력
+    // 윤년 조건: 4로 나눠떨어지고 100으로 나눠떨어지지않는다
+    // 윤년조건 : 400으로 나눠 떨어진다.
+    // let year = parseInt(prompt('년도를 입력해주세요'));
+    // if((year % 4 === 0 && year % 100 != 0) || year % 400 === 0){
+    //     console.log('윤년입니다.')
+    // }else{
+    //     console.log('윤년이 아닙니다.')
+    // }
+    //
+    const uid = ['admin','root','orange'];
+    const pw = ['20230125','tiger','pw'];
+    //
+    // // 해킹상의 이유로 너무 친절한 분별은 하지않는것이 좋음
+    // let [getId,getPw] =  [prompt('아이디를 입력해주세요'),prompt('패스워드를 입력해주세요')];
+
+    // if(uid.indexOf(getId)>=0){
+    //     if(getPw === pw[uid.indexOf(getId)]){
+    //         document.write(`<h2>회원인증에 성공했습니다.</h2>`)
+    //         document.write(`<a href="./condition.html">다른 아이디로 로그인하기</a>`)
+    //     }else{
+    //         document.write(`<h2>회원인증에 실패했습니다.</h2>`)
+    //         document.write(`<a href="./condition.html">다시 로그인하기</a>`)
+    //     }
+    // }else {
+    //     document.write(`<h2 style="color: rebeccapurple">회원인증에 실패했습니다.</h2>`)
+    //     document.write(`<a href="./condition.html">다시 로그인하기</a>`)
+
+    // 로그인 실패시 출력 문자
+
+
+    // function result(str){
+    //     return `<h2 style="color: rebeccapurple">회원인증에 ${str}했습니다.</h2><br><a href="./condition.html">다시 로그인하기</a>`;
+    // }
+    // let re = '';
+    //
+    // if(uid.indexOf(getId)>=0){
+    //     if(getPw === pw[uid.indexOf(getId)]){
+    //         re = result('성공');
+    //     }else{
+    //         re = result('실패');
+    //     }
+    // }else{
+    //         re = result('실패');
+    // }
+    // document.write(re);
+
+    // 특정년도의 윤년여부를 출력 v2
+    // 조건1 : 4로 나누어 떨어짐
+    // 조건2 : 4로 나누어 떨어지고 100으로도 나눠 떨어지면 평년
+    // 조건3 : 400으로 나눠떨어지면 윤년
+
+    year = parseInt(prompt('년도를 입력해주세요'));
+    let result2 = `${year}- 평년입니다.`;
+    if(year % 4 === 0){
+        if( year % 100 !=0){
+        result2=`${year} - 윤년입니다.`;
         }else{
-            console.log('오전입니다.');
+        result2=`${year} - 평년입니다.`;
         }
-    </script>
+    }else{
+        if(year % 400 ===0){
+            result2=`${year} - 윤년입니다.`;
+        }else{
+            result2=`${year} - 평년입니다.`;
+        }
+    }
+
+    document.write(result2);
+
+//     모든 반복되는 함수는 변수에 저장한 후 사용하는것이 좋음
+
+
+
+
+
+</script>
 </head>
 <body>
 
