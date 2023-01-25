@@ -570,6 +570,19 @@ null &&  1 &&  undefined;
 >![결과이미지](img/result24.png)
 
 
+### 조건식의 조건
+* false, 0 , undifined, null, NaN, 빈문자열등은 조건식에서 거짓으로 취급한다.
+```javascript
+let bTest = true;
+    bTest = null;
+   if(!bTest){
+       console.log('거짓입니다.');
+   }
+```
+>결과 <br>
+>![결과이미지](img/result29.png)
+
+
 ## 중첩조건문
 * if나 else안에 또다른 if나 else를 추가하는것
 * 단점: 가독성이 떨어지므로 코드의 사용 자제
@@ -618,6 +631,3 @@ null &&  1 &&  undefined;
 ```
 >결과 <br>
 >![결과이미지](img/result27.png)
-
-
- 

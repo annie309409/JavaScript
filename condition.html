@@ -92,18 +92,32 @@
 //     모든 반복되는 함수는 변수에 저장한 후 사용하는것이 좋음
 
 // 평균점수에 따라서 수우미양가 결과를 출력하는 학점 계산기
-    let avg = prompt('학점을 입력해주세요!');
-    let sco = '';
+//     let avg = prompt('학점을 입력해주세요!');
+//     let sco = '';
+//
+//     if(avg>=90 && avg <= 100 ) {sco='수'}
+//         else if(avg >= 80){sco='우'}
+//         else if(avg >= 70 ){sco='미'}
+//         else if(avg >= 60 ){sco='양'}
+//         else if( avg >= 0) {sco='가'}
+//         else{ sco='학점 산출 불가! 각 과목별 점수는 100점이하 및 숫자로만 입력해주세요!';}
+//     document.write(sco);
 
-    if(avg>=90 && avg <= 100 ) {sco='수'}
-        else if(avg >= 80){sco='우'}
-        else if(avg >= 70 ){sco='미'}
-        else if(avg >= 60 ){sco='양'}
-        else if( avg >= 0) {sco='가'}
-        else{ sco='학점 산출 불가! 각 과목별 점수는 100점이하 및 숫자로만 입력해주세요!';}
+//     버스기본요금
+let age = parseInt(prompt('나이를 입력해주세요'));
+let result  = 0;
 
-    document.write(sco);
+    if(age>=70 || age < 8){
+        result=0;
+    }else if(age >= 20){
+        result = 1200
+    }else if(age >= 14){
+        result=720
+    }else{
+        result=450
+    }
 
+document.write(`${age}세의 요금은 ${result}원 입니다.`);
 
 </script>
 </head>
