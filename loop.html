@@ -80,17 +80,17 @@
     // document.write('<br>'.repeat(3))
     //
     //
-    // //10층  별 피라미드2 출력
-    // let star3 = '';
-    // for(let i = 0 ; i <=10; i++){
-    //     for(let j = 0 ; j <=10; j++) {
-    //         (j<i) ?star3 += '&nbsp':star3 += '*';
-    //     }
-    //     star3 += '<br>';
-    // }
-    // document.write('별 피라미드2 <br>');
-    // document.write(star3);
-    // document.write('<br>'.repeat(2))
+    //10층  별 피라미드2 출력
+    let star3 = '';
+    for(let i = 0 ; i <=10; i++){
+        for(let j = 0 ; j <=10; j++) {
+            (j<i) ?star3 += '&nbsp':star3 += '*';
+        }
+        star3 += '<br>';
+    }
+    document.write('별 피라미드2 <br>');
+    document.write(star3);
+    document.write('<br>'.repeat(2))
     //
     //
     // //10층  별 피라미드2 역순 출력
@@ -186,11 +186,13 @@
     let history =[];
     while(!flag){
         bbb = parseInt(prompt('아무거나 숫자입력 ㄱㄱ'));
-        history.push(bbb);
-        (bbb === 0)?flag = true:sum2+=bbb;
+        (bbb === 0)?flag = true:(sum2+=bbb, history.push(bbb));
     }
     document.write(`입력한 숫자의 총 합 : ${sum2} <br>`);
     document.write(`지금까지 입력한 숫자 : ${history} <br>`);
+
+
+
     </script>
 
 </body>
