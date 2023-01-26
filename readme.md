@@ -49,4 +49,9 @@
 
 </details>
 
-## [⚙ 자바스크립트 알고리즘](https://github.com/annie309409/JavaScript/wiki/algorithm)
+## ⚙ 자바스크립트 알고리즘
+<details open>
+<summary> 자연수의 연산</summary>
+
+1. [가우스의 법칙](https://github.com/annie309409/JavaScript/wiki/algorithm#Gauss)
+</details>
