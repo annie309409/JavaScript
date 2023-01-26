@@ -55,3 +55,6 @@
 
 1. [가우스의 법칙](https://github.com/annie309409/JavaScript/wiki/algorithm#Gauss)
 </details>
+
+
+[테스트](./index.html);
