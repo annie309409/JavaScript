@@ -34,6 +34,8 @@
    1. [엘리먼트 출력](https://github.com/annie309409/JavaScript/wiki/DatastJS#엘리먼트출력)
       1. [for](https://github.com/annie309409/JavaScript/wiki/DatastJS#엘리먼트출력-for)
       2. [forEach](https://github.com/annie309409/JavaScript/wiki/DatastJS#엘리먼트출력-forEach)
+      3. [for~in](https://github.com/annie309409/JavaScript/wiki/DatastJS#엘리먼트출력-for-in)
+      4. [for~of](https://github.com/annie309409/JavaScript/wiki/DatastJS#엘리먼트출력-for-of)
    2. [엘리먼트 추가](https://github.com/annie309409/JavaScript/wiki/DatastJS#엘리먼트추가)
       1. [push](https://github.com/annie309409/JavaScript/wiki/DatastJS#엘리먼트추가-push)
 2. [객체](
