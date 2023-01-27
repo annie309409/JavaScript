@@ -21,23 +21,16 @@
         const btns = document.querySelectorAll('button');
         const result = document.querySelector('p');
 
-        btns[0].onclick=()=>{result.innerHTML = checkNumber(prompt('값을 입력하세요!'))};
-        btns[1].onclick=()=>{result.innerHTML = CardCheck(prompt('값을 입력하세요!'))};
-        btns[2].onclick=()=>{result.innerHTML = CalculateFee(prompt('거리를 입력하세요!'))};
-        btns[3].onclick=()=>{result.innerHTML = checkDayTime(prompt('시간때를 영어로 입력하세요!'))};
+        btns[0].onclick=()=>{result.innerHTML = checkNumber()};
+        btns[1].onclick=()=>{result.innerHTML = CardCheck()};
+        btns[2].onclick=()=>{result.innerHTML = CalculateFee()};
+        btns[3].onclick=()=>{result.innerHTML = checkDayTime()};
         btns[4].onclick=()=>{result.innerHTML = ComputeInvestment()};
         btns[5].onclick=()=>{result.innerHTML = BigGugudan()};
-        btns[6].onclick=()=>{result.innerHTML = lottery(prompt('랜덤숫자3개를 붙여서 입력!'))};
-        btns[7].onclick=()=>{result.innerHTML = Tax(prompt('혼인여부','기혼,미혼'),prompt('연봉입력'))};
-        btns[8].onclick=()=>{result.innerHTML = `빙고! 숫자를 맞췄습니다.<br>${CatchNumber(prompt('맞출숫자입력!'))}번 시도 `};
+        btns[6].onclick=()=>{result.innerHTML = lottery()};
+        btns[7].onclick=()=>{result.innerHTML = Tax()};
+        btns[8].onclick=()=>{result.innerHTML = `빙고! 숫자를 맞췄습니다.<br>${CatchNumber()}번 시도 `};
         btns[9].onclick=()=>{result.innerHTML = CalendarV1()};
-
-
-
-
-
-
-
 
     </script>
 </body>

@@ -1,4 +1,4 @@
-let checkNumber = (n)=>{
+let checkNumber = (n=prompt('값을 입력하세요!'))=>{
     let result ='';
     switch (~~(parseInt(n)/10000)){
         case 0 : result='10000미만';break;
@@ -9,7 +9,7 @@ let checkNumber = (n)=>{
     return result;
 };
 
-let CardCheck = (n)=>{
+let CardCheck = (n=prompt('값을 입력하세요!'))=>{
     let result = '';
     let cardData='356417 356901 356912 404825 438676 457973 515594 524353 540926'.split(' ');
     let cardName = '농협카드 신한카드 KB국민카드 비씨카드 신한카드 국민은행 신한카드 외환카드 국민은행'.split(' ');
@@ -23,7 +23,7 @@ let CardCheck = (n)=>{
     return result;
 }
 
-let CalculateFee = (e)=>{
+let CalculateFee = (e=prompt('거리를 입력하세요!'))=>{
     let result ='';
     switch (~~(parseInt(e)/100)){
         case 0 : result='10000원';break;
@@ -35,19 +35,21 @@ let CalculateFee = (e)=>{
     return result;
 }
 
-let checkDayTime = (daytime) => {
+let checkDayTime = (daytime=prompt('시간때를 영어로 입력하세요!')) => {
     const eng = 'morning hours  midday  noon  afternoon hours  evening hours  night hours  midnight  early morning hours  small hours  dawn  daybreak'.split('  ');
     const kor = '아침시간 (7-12)  점심시간 (12-1)  점심시간 (12-1)  오후 (1-6)  저녁시간 (6-9)  밤시간 (9-12)  자정시간 (12)  새벽시간 (12-5)  새벽 (1-3)  해뜰력(5-7)  해뜰력(5-7)'.split('  ');
     return (eng.indexOf(daytime)>=0) ? kor[eng.indexOf(daytime)] : '찾는시간 없음';
 }
 
-let ComputeInvestment = ()=>{
-    let left = 25000;
+let ComputeInvestment = (left = prompt('잔고를 입력하세요!'),bae =prompt('얼마까지 불리고 싶나요?'))=>{
     let cnt = [];
-    for(let  i = left; i < left*2 ; i += i*0.06){
+    let result ='';
+    for(let  i = left; i <= bae ; ~~(i *= 1.06)){
         cnt.push(i);
+        console.log(i);
     }
-    return `${cnt.length}년이 지나야 합니다.`;
+    result=`${cnt.length}년이 지나야 합니다.`;
+    return result;
 }
 
 let divs = (i,st)=>{ return `<div style="width:40px; text-align: center; float:left;  ${st}"> ${i}</div>`}
@@ -67,7 +69,7 @@ let BigGugudan = ()=>{
     return result;
 }
 
-let lottery =(str)=>{
+let lottery =(str=prompt('랜덤숫자3개를 붙여서 입력!'))=>{
     let lotto = `${parseInt(Math.random()*1000)}`.split('');
     let mykey = str.split('');
     let match = 0;
@@ -84,14 +86,14 @@ let lottery =(str)=>{
     return result;
 }
 
-let Tax = (gm,sal)=>{
+let Tax = (gm=prompt('혼인여부','기혼,미혼'),sal=prompt('연봉입력'))=>{
     let result=0;
     (gm==='미혼')? (sal>3000)?result=sal*0.25:result=sal*0.1
     :(sal>6000)?result=sal*0.35:result=sal*0.15;
     return result;
 }
 
-let CatchNumber=(n)=>{
+let CatchNumber=(n=prompt('맞출숫자입력!'))=>{
     let num = parseInt(Math.random()*100);
     console.log(num);
     let cntWrong  =0;
