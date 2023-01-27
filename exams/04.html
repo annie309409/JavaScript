@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button>32.정수범위</button> <br>
+    <button>33.신용카드정보</button> <br>
+    <button>34.미터기</button><br>
+    <button>35.시간때 한국어 변환</button><br>
+    <button>48.수지의 제테크</button><br>
+    <button>51.구구단 테이블</button><br>
+    <button>23.복권발행 프로그램</button><br>
+    <p>결과</p>
+    <script src="../js/04.js"></script>
+    <script>
+        const btns = document.querySelectorAll('button');
+        const result = document.querySelector('p');
+
+        btns[0].onclick=()=>{result.innerHTML = checkNumber(prompt('값을 입력하세요!'))};
+        btns[1].onclick=()=>{result.innerHTML = CardCheck(prompt('값을 입력하세요!'))};
+        btns[2].onclick=()=>{result.innerHTML = CalculateFee(prompt('거리를 입력하세요!'))};
+        btns[3].onclick=()=>{result.innerHTML = checkDayTime(prompt('시간때를 영어로 입력하세요!'))};
+        btns[4].onclick=()=>{result.innerHTML = ComputeInvestment()};
+        btns[5].onclick=()=>{result.innerHTML = BigGugudan()};
+        btns[6].onclick=()=>{result.innerHTML = lottery(prompt('랜덤숫자3개를 붙여서 입력!'))};
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

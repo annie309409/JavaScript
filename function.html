@@ -5,77 +5,112 @@
     <title>Title</title>
 </head>
 <body>
-<button onclick="document.write(showPyramid(prompt('방향을 입력해주세요!','정방향,역방향'),prompt('피라미드 층수 입력!')))">피라미드 만들기</button><br>
-<button onclick="document.write('입력한 시간은'+showAmPm(parseInt(prompt('시,분,초를 입력하세요!','13,02,01').split(',')[0]))+'입니다 <br>')">오전오후 파악하기</button><br>
-<button onclick="document.write(`학점은: ${computeSungJuk()} <br>`);">학점계산기</button><br>
-<button onclick=" document.write(`입력한 년도는: ${computeLeapYear(prompt('년도를 입력해주세요!'))} <br>`);">윤년계산기</button>
+<button>피라미드 만들기</button><br>
+<button>오전오후 파악하기</button><br>
+<button>학점계산기</button><br>
+<button>윤년계산기</button> <br>
+<button>부가세계산기</button> <br>
+<button>정수 , 음수 계산기</button> <br>
+<button>숫자의 조건</button> <br>
+<h2>0000. 0. 00. 오전 0:00:00 일</h2>
+
+<script src="./js/function09.js"></script>
 <script>
-    // function heyMachine(obj){
-    //     return `hello! ${obj}!!`;
-    // }
-    // document.write(`<h2>${heyMachine('world!')}✈</h2>`);
-    // document.write(`<h2>${heyMachine('JavaScript!')}👩‍🦰</h2>`);
-    // document.write(`<h2>${heyMachine('Annie!')}👧</h2>`);
 
-    // n층  별 피라미드 출력
+//    hey('hoisting');
+//
+//    let hey =  (e)=>{console.log(`hey!${e}`);}
+//
+//
+//
+   const btns =  document.querySelectorAll('button');
+   btns[0].onclick=()=>{
+       document.write(showPyramid(prompt('방향을 입력해주세요!','정방향,역방향'),prompt('피라미드 층수 입력!')));
+   }
+   btns[1].onclick=()=>{
+       document.write(morAfert(prompt('시간을 입력하세요','12:03:20').split(':')[0]));
+   }
+   btns[2].onclick=()=>{
+       document.write(computeSungJuk())
+   }
+   btns[3].onclick=()=>{
+       document.write(computeLeapYear(parseInt(prompt('년도를 입력해주세요!'))))
+   }
+   btns[4].onclick=()=>{
+       document.write(computeVAT5(parseInt(prompt('금액 입력'))));
+   }
+//
+//
+//    //     시,분,초를 입력받아 오전, 오후 구분출력
+//    let morAfert=(s)=>(s>=12)? `${s}시는 오후입니다.` : `${s}시는 오전입니다.`;
+//
+//    // let hi = e=>document.write(`${e}야, 안뇽안뇽!!`);
+//    // hi('annie');
+//    //
+//    let hi = e=>`${e}야, 안뇽안뇽!!`;
+//    console.log(hi('annie'));
+//
+//
+//
+//    // function heyMachine(obj){
+//    //     return `hello! ${obj}!!`;
+//    // }
+//    // document.write(`<h2>${heyMachine('world!')}✈</h2>`);
+//    // document.write(`<h2>${heyMachine('JavaScript!')}👩‍🦰</h2>`);
+//    // document.write(`<h2>${heyMachine('Annie!')}👧</h2>`);
+//
+//    // n층  별 피라미드 출력
+//    // 반대방향(오른쪽)
+//    // for(let i = 0 ; i < 10; i++){
+//    //     for(let j = 1; j <= 10; j++) {
+//    //         (j < 10-i)?star+='&nbsp;':star+='*';
+//    //     }
+//    //     star += '<br>';
+//    // }
 
-    let star = '';
-    function showPyramid(dir,n){
-        if(dir==='정방향'){
-            for(let i = 0 ; i<n; i++){
-                for(let j=0 ; j<=i; j++) {
-                    star += '*';
-                }
-                star +='<br>';
-            }
-        }else{
-            for(let i = 0 ; i < n; i++){
-                for(let j = 0 ; j < n; j++) {
-                    (j<i) ?star += '&nbsp':star += '*';
-                }
-                star += '<br>';
-            }
-        }
+
+// let showHello=(callback)=>{
+//     for(let i = 1 ; i < 10; i++){
+//         callback('bye!');
+//     }
+// };
+
+// let sayHello= (aa) => document.write('hello world!'+aa+'<br>');
+//
+// showHello(sayHello);
+//
+
+// setTimeout(sayHello,1000);
+// setInterval(sayHello,5000);
 
 
-        return star;
+// 현재 날짜와 시간을 출력하는 함수
+// 2023-01-27 13:15:30
+// 옵션: 요일, 오전, 오후까지 출력 showDataTime
+// 1초마다 현재 날짜와 시간을 출력
+
+const datePrint = document.querySelector('h2');
+setInterval(showDateTime,1000);
+
+// 정수 하나를 입력받아 정수, 음수, 0인지 구분
+btns[5].onclick=()=>{
+    document.write(identifyNumber(prompt('숫자입력!')));
+}
+btns[6].onclick=()=>{
+    document.write(identifyNumber(prompt('숫자입력!')));
+}
+
+
+
+let showHello=(callback,name)=>{
+    for(let i = 1 ; i < 10; i++){
+        callback(name);
     }
+};
 
-//     시,분,초를 입력받아 오전, 오후 구분출력
-    let morAfert='';
+let sayHello= (aa) => document.write(`hi~ ${aa}<br>`);
 
-    function showAmPm(s){
-        (s>=12)? morAfert = '오후':morAfert = '오전';
-        return morAfert;
-    }
-
-//     국어, 영어, 수학입력시 학점 출력함수
-    let jum = '';
-    let total = 0;
-
-    function computeSungJuk(sub = ['국어','영어','수학']){
-        for(let i of sub){
-            total += parseInt(prompt(`${i}점수는?`));
-        }
-        switch (~~((total/3)/10)){
-            case 10: jum = '수'; break;
-            case 9: jum = '수'; break;
-            case 8: jum = '우'; break;
-            case 7: jum = '미'; break;
-            case 6: jum = '양'; break;
-            default : jum = '가';
-        }
-        return jum;
-    }
-
-
-    //윤년여부 계산기
-    let yoon ='';
-    function computeLeapYear(year){
-        ((year % 4 ===0 && year%100 != 0) || year % 400 === 0)? yoon = '윤년입니다' : yoon = '평년입니다.';
-        return yoon;
-    }
-
+showHello(sayHello,'annie');
 
 </script>
 </body>
