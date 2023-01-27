@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    // let hj=212313132;
+    // if(hj % 2 === 0){
+    //     console.log('짝수입니다.')
+    // }else{
+    //     console.log('홀수입니다.')
+    // }
+
+    // let time  = '11:47:40';
+    // let hour = parseInt(time.slice(0,2)) >= 12;
+    //
+    // switch (hour){
+    //     case true: document.write('오후입니다'); break;
+    //     case false: document.write('오전입니다');break;
+    //     default: document.write('시간산출불가');
+    // }
+
+    // if(hour >= 12){
+    //     console.log('오후입니다.');
+    // }else{
+    //     console.log('오전입니다.');
+    // }
+
+    //  특정 년도에 윤년여부를 출력
+    // 윤년 조건: 4로 나눠떨어지고 100으로 나눠떨어지지않는다
+    // 윤년조건 : 400으로 나눠 떨어진다.
+    // let year = parseInt(prompt('년도를 입력해주세요'));
+    // if((year % 4 === 0 && year % 100 != 0) || year % 400 === 0){
+    //     console.log('윤년입니다.')
+    // }else{
+    //     console.log('윤년이 아닙니다.')
+    // }
+    //
+    // const uid = ['admin','root','orange'];
+    // const pw = ['20230125','tiger','pw'];
+    //
+    // // 해킹상의 이유로 너무 친절한 분별은 하지않는것이 좋음
+    // let [getId,getPw] =  [prompt('아이디를 입력해주세요'),prompt('패스워드를 입력해주세요')];
+
+    // if(uid.indexOf(getId)>=0){
+    //     if(getPw === pw[uid.indexOf(getId)]){
+    //         document.write(`<h2>회원인증에 성공했습니다.</h2>`)
+    //         document.write(`<a href="./condition.html">다른 아이디로 로그인하기</a>`)
+    //     }else{
+    //         document.write(`<h2>회원인증에 실패했습니다.</h2>`)
+    //         document.write(`<a href="./condition.html">다시 로그인하기</a>`)
+    //     }
+    // }else {
+    //     document.write(`<h2 style="color: rebeccapurple">회원인증에 실패했습니다.</h2>`)
+    //     document.write(`<a href="./condition.html">다시 로그인하기</a>`)
+
+    // 로그인 실패시 출력 문자
+
+
+    // function result(str){
+    //     return `<h2 style="color: rebeccapurple">회원인증에 ${str}했습니다.</h2><br><a href="./condition.html">다시 로그인하기</a>`;
+    // }
+    // let re = '';
+    //
+    // if(uid.indexOf(getId)>=0){
+    //     if(getPw === pw[uid.indexOf(getId)]){
+    //         re = result('성공');
+    //     }else{
+    //         re = result('실패');
+    //     }
+    // }else{
+    //         re = result('실패');
+    // }
+    // document.write(re);
+
+    // 특정년도의 윤년여부를 출력 v2
+    // 조건1 : 4로 나누어 떨어짐
+    // 조건2 : 4로 나누어 떨어지고 100으로도 나눠 떨어지면 평년
+    // 조건3 : 400으로 나눠떨어지면 윤년
+    //
+    // year = parseInt(prompt('년도를 입력해주세요'));
+    // let result2 = `${year}- 평년입니다.`;
+    // if(year % 4 === 0){
+    //     if( year % 100 !=0){
+    //     result2=`${year} - 윤년입니다.`;
+    //     }else{
+    //     result2=`${year} - 평년입니다.`;
+    //     }
+    // }else{
+    //     if(year % 400 ===0){
+    //         result2=`${year} - 윤년입니다.`;
+    //     }else{
+    //         result2=`${year} - 평년입니다.`;
+    //     }
+    // }
+    //
+    // document.write(result2);
+
+//     모든 반복되는 함수는 변수에 저장한 후 사용하는것이 좋음
+
+// 평균점수에 따라서 수우미양가 결과를 출력하는 학점 계산기
+//     let avg = prompt('학점을 입력해주세요!');
+//     let sco = '';
+//
+//     if(avg>=90 && avg <= 100 ) {sco='수'}
+//         else if(avg >= 80){sco='우'}
+//         else if(avg >= 70 ){sco='미'}
+//         else if(avg >= 60 ){sco='양'}
+//         else if( avg >= 0) {sco='가'}
+//         else{ sco='학점 산출 불가! 각 과목별 점수는 100점이하 및 숫자로만 입력해주세요!';}
+//     document.write(sco);
+
+//     버스기본요금
+// let age = parseInt(prompt('나이를 입력해주세요'));
+// let result  = 0;
+//
+//     if(age>=70 || age < 8){
+//         result=0;
+//     }else if(age >= 20){
+//         result = 1200
+//     }else if(age >= 14){
+//         result=720
+//     }else{
+//         result=450
+//     }
+//
+// document.write(`${age}세의 요금은 ${result}원 입니다.`);
+
+
+    //월을 입력하면 영어로 변환
+    let date = '1988.02.04';
+    let month = parseInt(date.slice(5,7));
+    let year = date.slice(0,4);
+    let monthEng = 'january february march april may june july august september october november december'.split(' ');
+    let monFn = '';
+    console.log(year);
+    monthEng.forEach((e,idx)=>{
+        switch (month){
+            case idx+1 : monFn = e.toUpperCase(); break;
+        }
+    });
+    document.write(monFn+'<br>');
+    //
+    // //월을 입력하면 해당월의 마지막날 출력
+    // let monOdd = '1 3 5 7 8 10 12'.split(' ').map(m=>parseInt(m));
+    // let monEven = '4 6 9 11'.split(' ').map(m=>parseInt(m));
+    // let lastDay = 0;
+    //
+    // let yoon = ((year % 4 ===0 && year%100 != 0) || year % 400 === 0);
+    //
+    // switch (true){
+    //     case (monOdd.includes(month)) : lastDay=31; break;
+    //     case (monEven.includes(month)) : lastDay=30; break;
+    //     case (month === 2 && yoon) : lastDay=29; break;
+    //     case (month === 2) : lastDay=28; break;
+    //     default : document.write(`잘못입력했어여 😥 <br>`);
+    // }
+    // (yoon)?document.write(`윤년입니다.<br>`):document.write(`평년입니다.<br>`)
+    // document.write(`마지막날은:${lastDay} <br>`)
+    //
+    //
+    //
+    // //평균점수를 수우미양가 조건에 따라서 출력
+    // let avg = 20.9;
+    // let jum = '수 우 미 양 가'.split(' ');
+    //
+    // // switch (true){
+    // //     case (90 < avg): jum = jum[0]; break;
+    // //     case (80 < avg): jum = jum[1]; break;
+    // //     case (70 < avg): jum = jum[2]; break;
+    // //     case (60 < avg): jum = jum[3]; break;
+    // //     case (50 < avg): jum = jum[4]; break;
+    // //     default : jum ='값없음';
+    // // }
+    //
+    // switch (~~(avg/10)){
+    //     case 10: jum = jum[0]; break;
+    //     case 9: jum = jum[0]; break;
+    //     case 8: jum = jum[1]; break;
+    //     case 7: jum = jum[2]; break;
+    //     case 6: jum = jum[3]; break;
+    //     default : jum = jum[4];
+    // }
+    //
+    // document.write(` 평균점수 : ${avg} | 학점:${jum}`);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

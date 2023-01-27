@@ -29,7 +29,43 @@
       document.write(`true + false = ${  true + false }<br>`);
       document.write(`false + undefined = ${ undefined + false }<br>`);
 
+        x=1;
+        x=x+1;
+        document.write(`x=x+1 : ${x}<br>`)
+        document.write(`${'-'.repeat(20)}<br>`)
 
+  // 나이계산
+  //     let birthday = prompt('생년의 연도는?');
+  //     let age= 2023 - birthday + 1 ;
+  //     document.write(`당신은 ${birthday}년도에 태어났습니다!`);
+  //     document.write('<br>');
+  //     document.write(`당신의 나이는 :  ${age} 살 입니다.`);
+
+   //성적처리프로그램 이름, 국어, 영어, 수학을 입력받고 총점, 평균, 학점계산 후 수우미양가 출력
+        let name = prompt('이름을 입력해주세요!');
+        let scores =['국어점수','영어점수','수학점수'];
+        let type=[];
+        let [ttl, avg, sco] = [0,0,''];
+          scores.forEach((e)=>{
+            type.push(Number(prompt(`${e}를 입력해주세요`)));
+          });
+          document.write(`<h2>성적처리 프로그램 V2</h2>`);
+          // ttl= +type[0]+ +type[1] + +type[2];
+          ttl = type.reduce((p,n)=>p+n);
+          avg = ttl/(type.length);
+
+            avg>=90 && avg <= 100 ?
+            sco='수':avg >= 80 ?
+            sco='우':avg >= 70 ?
+            sco='미': avg >= 60 ?
+            sco='양': avg >= 0 ?
+            sco='가':
+            sco='학점 산출 불가! 각 과목별 점수는 100점이하 및 숫자로만 입력해주세요!';
+
+          document.write(`학생이름: ${name} <br>`);
+          document.write(`총점: ${ttl} <br>`);
+          document.write(`평균: ${avg.toFixed(2)} <br>`);
+          document.write(`학점: ${sco} <br>`);
   </script>
 </body>
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // let dooli = ['둘리','또치','고길동','마이콜','희동이'];
+    //
+    // for(let i in dooli){
+    //     console.log(i);
+    // }
+    // for(let i of dooli){
+    //     console.log(i);
+    // }
+    //
+    // //성적처리 ver02: 3명의 학생에 대해서 이름, 국어, 영어, 수학을 입력받아 총점, 평균, 학점을 계산한 뒤 결과 출력
+    // let stdName=[];
+    // let math=[];
+    // let eng=[];
+    // let kor=[];
+    // let total=[];
+    // let avg = [];
+    // let jum=[];
+    //
+    // document.write('<h2>학점 계산기</h2>');
+    // for(let i = 0; i<3;i++){
+    //     stdName.push(prompt('학생이름 입력'));
+    //     math.push(parseInt(prompt(`${stdName[i]}의 수학성적 입력`)));
+    //     kor.push(parseInt(prompt(`${stdName[i]}의 국어성적 입력`)));
+    //     eng.push(parseInt(prompt(`${stdName[i]}의 영어성적 입력`)));
+    //     total.push(math[i]+kor[i]+eng[i]);
+    //     avg.push(Math.round(total[i]/3));
+    //
+    //
+    //     switch (~~(avg[i]/10)){
+    //         case 10: jum.push('수'); break;
+    //         case 9: jum.push('수'); break;
+    //         case 8: jum.push('우'); break;
+    //         case 7: jum.push('미'); break;
+    //         case 6: jum.push('양'); break;
+    //         default : jum.push('가');
+    //     }
+    // }
+    //
+    // for(let i in stdName){
+    //     document.write(`학생이름:${stdName[i]}<br>`);
+    //     document.write(`총점:${total[i]}<br>`);
+    //     document.write(`평균:${avg[i]}<br>`);
+    //     document.write(`학점:${jum[i]}<br>`);
+    //     document.write('*'.repeat(20)+'<br>');
+    // }
+
+    let label =[['이름'],['수학'] ,['영어'], ['국어'], ['총점'], ['평균'], ['학점']];
+    for(let i in label){
+        for(let j=0; j<3 ;j++){
+            label[i].push(j);
+        }
+    }
+    console.log(label);
+</script>
+</body>
+</html>

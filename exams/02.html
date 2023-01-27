@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="MyInfo()">11번 실행하기 (myInfo)</button><br>
+<button onclick="MyAge()">12번 실행하기 (MyAge)</button><br>
+<button onclick="GuGu7Dan()">14번 실행하기 (GuGu7Dan)</button>
+<script>
+<!--    11번-->
+    function MyInfo(){
+        let [name,wieght,age] = ['이름','몸무게','나이'];
+        name = prompt('이름을 입력해주세요');
+        wieght = prompt('몸무게를 입력해주세요');
+        age = prompt('나이를 입력해주세요');
+
+        document.write(`이름:${name}<br>몸무게:${wieght}<br>나이:${age}<br>`);
+        document.write('<br>'.repeat(2));
+        document.write(`다른걸 시도하려면 새로고침(F5)!`);
+    }
+
+//     12번
+    function MyAge(){
+        let birthday=prompt('당신의 생일을 입력하세요! 예)2023.01.20','2023.01.20');
+        birthday = birthday.split('.').map(m=> parseInt(m));
+        (birthday[1] > 1  && birthday[2] < 20 )? birthday = 2023 - birthday[0] -1 : birthday = 2023 - birthday[0]
+        document.write(`당신의 나이는 ${birthday}입니다.<br>`);
+        document.write('<br>'.repeat(2));
+        document.write(`다른걸 시도하려면 새로고침(F5)!`);
+    }
+
+// 13번
+    function GuGu7Dan(){
+        let dan = Array.from({length: 9}, (n,idx)=> idx+1);
+        dan.forEach(e=> document.write(`7 X ${e} = ${e*7}<br>`) );
+        document.write('<br>'.repeat(2));
+        document.write(`다른걸 시도하려면 새로고침(F5)!`);
+    }
+
+</script>
+</body>
+</html>
