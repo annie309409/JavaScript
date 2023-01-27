@@ -25,7 +25,7 @@ let CardCheck = (n)=>{
 
 let CalculateFee = (e)=>{
     let result ='';
-    switch ((parseInt(e)/100)+9){
+    switch (~~(parseInt(e)/100)){
         case 0 : result='10000원';break;
         case 1 : result='55000원';break;
         case 2 : result='55000원';break;
@@ -47,7 +47,7 @@ let ComputeInvestment = ()=>{
     for(let  i = left; i < left*2 ; i += i*0.06){
         cnt.push(i);
     }
-    return `${cnt.length}`;
+    return `${cnt.length}년이 지나야 합니다.`;
 }
 
 let divs = (i,st)=>{ return `<div style="width:40px; text-align: center; float:left;  ${st}"> ${i}</div>`}
@@ -84,3 +84,38 @@ let lottery =(str)=>{
     return result;
 }
 
+let Tax = (gm,sal)=>{
+    let result=0;
+    (gm==='미혼')? (sal>3000)?result=sal*0.25:result=sal*0.1
+    :(sal>6000)?result=sal*0.35:result=sal*0.15;
+    return result;
+}
+
+let CatchNumber=(n)=>{
+    let num = parseInt(Math.random()*100);
+    console.log(num);
+    let cntWrong  =0;
+    while(num != n){
+        (num>n)? n =prompt('더 큰 숫자입력!'):n =prompt('더 작은 숫자입력!');
+        cntWrong++;     
+    }
+    return cntWrong;
+}
+
+let CalendarV1 = (year = prompt('년도입력'))=>{
+    let strt =~~((((year-1)*365+ (year-1)/4 - (year-1)/100 +(year-1)/400))+1)%7;
+    let result = '';
+    let dt = 0;
+    let days ='Sun Mon Tue Wed Thu Fri Sat'.split(' ');
+    result += `<h2 style='border-bottom : 2px solid black; width:300px; text-align:center'>January ${year} </h2>`;
+    for(let i =0; i<days.length; i++){
+        for(j = 0 ; j< days.length; j++){
+            (i===0)? result+= divs(`${days[j]}`,'font-weight:700')
+            :(i===1 & j<strt)? result += divs(`&nbsp;`,'')
+            :(dt>30)?result += divs(`&nbsp;`,'')
+            :(dt++,result += divs(`${dt}`,'') )
+        }
+        result += '<br>';
+    }
+    return result;
+}

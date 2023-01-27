@@ -9,9 +9,12 @@
     <button>33.신용카드정보</button> <br>
     <button>34.미터기</button><br>
     <button>35.시간때 한국어 변환</button><br>
-    <button>48.수지의 제테크</button><br>
+    <button>48.수지의 재테크</button><br>
     <button>51.구구단 테이블</button><br>
-    <button>23.복권발행 프로그램</button><br>
+    <button>25.복권발행 프로그램</button><br>
+    <button>26.세금계산 프로그램</button><br>
+    <button>30.숫자를맞춰봐!</button><br>
+    <button>53.달력출력</button><br>
     <p>결과</p>
     <script src="../js/04.js"></script>
     <script>
@@ -25,6 +28,9 @@
         btns[4].onclick=()=>{result.innerHTML = ComputeInvestment()};
         btns[5].onclick=()=>{result.innerHTML = BigGugudan()};
         btns[6].onclick=()=>{result.innerHTML = lottery(prompt('랜덤숫자3개를 붙여서 입력!'))};
+        btns[7].onclick=()=>{result.innerHTML = Tax(prompt('혼인여부','기혼,미혼'),prompt('연봉입력'))};
+        btns[8].onclick=()=>{result.innerHTML = `빙고! 숫자를 맞췄습니다.<br>${CatchNumber(prompt('맞출숫자입력!'))}번 시도 `};
+        btns[9].onclick=()=>{result.innerHTML = CalendarV1()};
 
 
 
