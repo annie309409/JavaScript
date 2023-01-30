@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .lotto div{
+            margin-top: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            line-height: 80px;
+            font-size: 25px;
+            color: #ffffff;
+            text-align: center;
+            float: left;
+            margin-left: 20px;
+        }
+        .lotto div:nth-of-type(1){
+            background-color: rebeccapurple;
+        }
+        .lotto div:nth-of-type(2){
+            background-color: crimson;
+        }
+        .lotto div:nth-of-type(3){
+            background-color: cadetblue;
+        }
+        .lotto div:nth-of-type(4){
+            background-color: darkslateblue;
+        }
+        .lotto div:nth-of-type(5){
+            background-color: darkkhaki;
+        }
+        .lotto div:nth-of-type(6){
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+    <button>로또 숫자 만들기!</button>
+    <button>성적 산출하기!</button>
+    <div></div>
+
+  <script>
+  // 0~9사이 숫자
+   let lotto = Math.random()*10;
+   console.log(parseInt(lotto));
+
+   //1~10사이의 정수
+   lotto =Math.random()*10+1
+   console.log(parseInt(lotto));
+   //1~99사이의 정수
+   lotto =Math.random()*100
+   console.log(parseInt(lotto));
+
+   //1~45사이의 정수
+   lotto =Math.random()*45+1
+   console.log(parseInt(lotto));
+
+   // for(let i =0; i<6;i++){
+   //     document.write(parseInt((Math.random() * 45)) + 1+'<br>');
+   // }
+
+    const div = document.querySelector('div');
+    const btns = document.querySelectorAll('button');
+
+  btns[0].onclick = ()=>{
+      div.innerHTML = '';
+      div.className = 'lotto'
+     // 1~45사이의 정수 중 중복되지 않은 정수 출력
+        lotto = new Set();
+        while(lotto.size < 6){
+           lotto.add(parseInt((Math.random() * 45)+1));
+        }
+        lotto.forEach(e=>{
+           div.innerHTML += `<div>${e}</div>`;
+        });
+  }
+
+  btns[1].onclick = ()=>{
+      div.innerHTML = '';
+      div.className = '';
+      //   성적처리 프로그램 v4
+      // 이름, 국어, 영어, 수학을 입력받아
+      //  총점, 평균, 학점을 계산한 뒤 결과 출력
+      // 단, 학생이름과 성적은 SungJuk이라는 객체에 저장
+      //  SungJuk 객체 안 computeSungJuk메서드에 매개변수를 전달하여
+      //  총점, 평균, 학점을 처리하고
+      //  SungJuk객체의 showSungJuk이라는 함수를 이용하여 처리결과 반환
+
+      let SungJuk = new Object();
+      SungJuk.name = prompt('이름을 입력하세요!');
+      SungJuk.kor = prompt('국어성적을 입력하세요!');
+      SungJuk.eng = prompt('영어성적을 입력하세요!');
+      SungJuk.math = prompt('수학성적을 입력하세요!');
+      SungJuk.computeSungJuk = function(){
+          let result  = [];
+          let total  =  parseInt(this.kor) + parseInt(this.eng) + parseInt(this.math);
+          let avg  =  ~~(total/3);
+          switch (avg/10){
+              case 10: (result.push('수'), result.push(total),result.push(avg)); break;
+              case 9: (result.push('수'), result.push(total),result.push(avg)); break;
+              case 8: (result.push('우'), result.push(total),result.push(avg)); break;
+              case 7: (result.push('미'), result.push(total),result.push(avg)); break;
+              case 6: (result.push('양'), result.push(total),result.push(avg)); break;
+              default : (result.push('가'), result.push(total),result.push(avg));
+          }
+          return result;
+      }
+      SungJuk.showSungJuk = function(){
+          div.innerHTML += `이름 : ${this.name} <br>`;
+          div.innerHTML += `수학점수 : ${this.math} <br>`;
+          div.innerHTML += `영어점수 : ${this.eng} <br>`;
+          div.innerHTML += `국어점수 : ${this.kor} <br>`;
+          div.innerHTML += `총점 : ${this.computeSungJuk()[1]} <br>`;
+          div.innerHTML += `평균 : ${this.computeSungJuk()[2]} <br>`;
+          div.innerHTML += `학점 : ${this.computeSungJuk()[0]} <br>`;
+      }
+      SungJuk.showSungJuk();
+  }
+
+
+
+  </script>
+</body>
+</html>

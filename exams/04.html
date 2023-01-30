@@ -3,6 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        h2{
+            width: 350px;
+            text-align: center;
+        }
+        tr:first-child td{
+            border-bottom: 1px solid black;
+        }
+        tr:first-child td:first-child{
+            color: transparent;
+            border-bottom:  0;
+        }
+        td{
+            width: 30px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <button>32.정수범위</button> <br>
@@ -15,20 +32,20 @@
     <button>26.세금계산 프로그램</button><br>
     <button>30.숫자를맞춰봐!</button><br>
     <button>53.달력출력</button><br>
-    <p>결과</p>
+    <div>결과</div>
     <script src="../js/04.js"></script>
     <script>
         const btns = document.querySelectorAll('button');
-        const result = document.querySelector('p');
+        const result = document.querySelector('div');
 
         btns[0].onclick=()=>{result.innerHTML = checkNumber()};
         btns[1].onclick=()=>{result.innerHTML = CardCheck()};
         btns[2].onclick=()=>{result.innerHTML = CalculateFee()};
         btns[3].onclick=()=>{result.innerHTML = checkDayTime()};
         btns[4].onclick=()=>{result.innerHTML = ComputeInvestment()};
-        btns[5].onclick=()=>{result.innerHTML = BigGugudan()};
+        btns[5].onclick=()=>{result.innerHTML = BigGugudanV2()};
         btns[6].onclick=()=>{result.innerHTML = lottery()};
-        btns[7].onclick=()=>{result.innerHTML = Tax()};
+        btns[7].onclick=()=>{result.innerHTML = computeTax()};
         btns[8].onclick=()=>{result.innerHTML = `빙고! 숫자를 맞췄습니다.<br>${CatchNumber()}번 시도 `};
         btns[9].onclick=()=>{result.innerHTML = CalendarV1()};
 
