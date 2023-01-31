@@ -28,8 +28,8 @@ let CardCheck = (n=prompt('값을 입력하세요!'))=>{
         case 5 : idx = 2; break;
         default : result ='정보 없음';break;
     }
-    (cardName[idx][cardData[idx].indexOf(n.slice(2,n.length))]==undefined)? result= '정보없음':
-    result = `${cardComp[idx]}, ${cardName[idx][cardData[idx].indexOf(n.slice(2,n.length))]}카드`;
+    (cardName[idx][cardData[idx].indexOf(n.slice(2))]==undefined)? result= '정보없음':
+    result = `${cardComp[idx]}, ${cardName[idx][cardData[idx].indexOf(n.slice(2))]}카드`;
     return result;
 }
 
@@ -134,25 +134,31 @@ let CatchNumber=(n=prompt('맞출숫자입력!'))=>{
     return cntWrong;
 }
 
-let CalendarV1 = (year = prompt('년도와 월을 입력하세요!','202301'))=>{
-    let calen= [13,14,3,4,5,6,7,8,9,10,11,12];
-    let m = calen[parseInt(year.slice(4,6)-1)];
-    let K = parseInt(year.slice(2,4));
-    let D = parseInt(year.slice(0,2));
-    let C = (K + Math.floor(K / 4)) / 4;
-    const d = (K + Math.floor((13 * (m + 1)) / 5) + D + Math.floor(D / 4) + Math.floor(C / 4) - 2 * C) % 7;
-    // alert(d);
-
-    switch (d){
-        case 0 : alert('토요일'); break;
-        case 1 : alert('일요일'); break;
-        case 2 : alert('월요일'); break;
-        case 3 : alert('화요일'); break;
-        case 4 : alert('수요일'); break;
-        case 5 : alert('목요일'); break;
-        case 6 : alert('금요일'); break;
+let CalendarV1 = (year = '202208')=>{
+    // let calen = [13, 14, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    // let m = calen[parseInt(year.slice(4, 6) - 1)];
+    // let K = parseInt(year.slice(0, 2)) - (m < 3 ? 1 : 0);
+    // let C = Math.floor((K + Math.floor(K / 4)) / 4);
+    // let d = ((K + Math.floor((13 * (m + 1)) / 5) + parseInt(year.slice(6, 8)) + Math.floor(parseInt(year.slice(6, 8)) / 4) + Math.floor(C / 4) - 2 * C) % 7 + 7) % 7;
+    //
+    let result='';
+    let q = 1
+    let calen = [11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let m = calen[parseInt(year.slice(4, 6) - 1)]+1;
+    let K = parseInt(year.slice(4, 6));
+    let J = parseInt(year.slice(0,4)) / 100
+    let h = (q + Math.floor((13 * (m + 1)) / 5) + K + Math.floor(K / 4) + Math.floor(J / 4) - 2 * J) % 7;
+    h = ~~((h + 7) % 7);
+    console.log(h);
+    switch (h){
+        case 0 : result='Saturday'; break;
+        case 1 : result='Sunday'; break;
+        case 2 : result='Monday'; break;
+        case 3 : result='Tuesday'; break;
+        case 4 : result='Wednesday'; break;
+        case 5 : result='Thursday'; break;
+        case 6 : result='Friday'; break;
     }
-
     // let strt =~~((((year-1)*365+ (year-1)/4 - (year-1)/100 +(year-1)/400))+1)%7;
     // // let strt = (1 + floor((13 * (m + 1)) / 5) + K + floor(K / 4) + floor(J / 4) + 5 * J) mod 7
     //

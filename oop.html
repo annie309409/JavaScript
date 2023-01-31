@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 클래스</title>
+<!--    <script src="js/13oop.js"></script>-->
+</head>
+<body>
+<!--    <script>-->
+<!--    &lt;!&ndash;클래스를 사용하는 이유&ndash;&gt;-->
+<!--    // case 1 : 아이디, 비번, 이메일을 저장하기 위한 변수를 선언하고 적절한 값으로 초기화 할때-->
+<!--    class info{-->
+<!--        constructor(id,pw,email,name) {-->
+<!--            this.id = id;-->
+<!--            this.pw = pw;-->
+<!--            this.email = email;-->
+<!--            this.name = name;-->
+<!--        }-->
+<!--    }-->
+
+
+<!--    let info1  =  new info('dooli','12345','dooli@gogildong.com','둘리');-->
+<!--    let info2  =  new info('ttochi','12345','toochi@gogildong.com','또치');-->
+<!--    let info3  =  new info('douner','12345','douner@gogildong.com','도우너');-->
+<!--    document.write(`${info1.id} || ${info1.pw} || ${info1.email} || ${info1.name}<br>`);-->
+<!--    document.write(`${info2.id} || ${info2.pw} || ${info2.email} || ${info2.name}<br>`);-->
+<!--    document.write(`${info3.id} || ${info3.pw} || ${info3.email} || ${info3.name}<br>`);-->
+
+
+<!--    info = new info();-->
+<!--    //객체명.변수명 형식으로 값을 초기화할 수 있다.-->
+<!--    // 이러한 값은 권한과 상관없이 쉽게 접근이 가능하다.-->
+<!--    info.id ='gogildong';-->
+<!--    info.name ='고길동';-->
+<!--    info.email ='theking@gogildong.com';-->
+<!--    info.pw ='000';-->
+
+<!--    document.write(`${info.id} || ${info.pw} || ${info.email} || ${info.name}<br>`);-->
+
+
+<!--    // 값에 대한 접근제한을 걸어 값에 접근하는 방법-->
+<!--    // (객체안에 선언된 변수를 외부에서 함부로 다루지 못하게 하기위함)-->
+
+<!--    class info2{-->
+<!--        _id = '';  //_는 protected 속성으로 선언-->
+<!--        #pw = ''; //#은 private 속성으로 선언-->
+<!--        _email = '';-->
+<!--        _name = '';-->
+<!--        constructor(id,pw,email,name) {-->
+<!--            this._id = id;-->
+<!--            this.#pw = pw;-->
+<!--            this._email = email;-->
+<!--            this._name = name;-->
+<!--        }-->
+<!--    }-->
+
+<!--    info =new info2();-->
+<!--    // 에러발생 == 바로접근 불가능-->
+<!--    // protected 속성으로 선언된 변수는 클래스 외부에서 접근할 수 없다.-->
+<!--    // 따라서 값 조작이 불가능하다.-->
+<!--    info.id = 'Heedong-E';-->
+<!--    info.pw = 'Heedong1234';-->
+
+<!--    document.write(info.id);-->
+<!--    document.write(info.pw);-->
+
+
+
+<!--    </script>-->
+<!--    <script>-->
+<!--        // user= new info3();-->
+<!--        // 에러발생-->
+<!--        user._id='heedong!!';-->
+<!--        // 에러발생-->
+<!--        user.#pw ='heedong1234';-->
+<!--    </script>-->
+
+<!--    <script>-->
+<!--        class user4{-->
+<!--            #userid='';-->
+<!--            _address = '';-->
+
+
+<!--            // setter :setName-->
+<!--            setUserid(userid){-->
+<!--                this.#userid = userid;-->
+<!--            }-->
+<!--            setAddress(add){-->
+<!--                this._address =add;-->
+<!--            }-->
+<!--            // getter : getName-->
+<!--            getUserid(){-->
+<!--                return this.#userid;-->
+<!--            }-->
+<!--            getAddr(){-->
+<!--                return this._address;-->
+<!--            }-->
+
+<!--        }-->
+<!--        let tt = new user4();-->
+<!--        // private에서 접근가능-->
+<!--        tt.setUserid('고길동님');-->
+
+<!--        // protected에서 접근가능-->
+<!--        tt.setAddress('서울시 강남구 신사동');-->
+<!--        tt._address ='서울시 강남구 신사동2';-->
+<!--        document.write(tt.getUserid());-->
+<!--        document.write(tt.getAddr());-->
+
+<!--        document.write('<br>'+'*'.repeat(10)+'<br>');-->
+
+
+<!--        class user5{-->
+<!--            #userid='';-->
+<!--            _address = '';-->
+
+<!--            // setter :setName-->
+<!--            set userid(userid){-->
+<!--                this.#userid = userid;-->
+<!--            }-->
+<!--            set address(address){-->
+<!--                this._address =address;-->
+<!--            }-->
+<!--            // getter : getName-->
+<!--            get userid(){-->
+<!--                return this.#userid;-->
+<!--            }-->
+<!--            get addr(){-->
+<!--                return this._address;-->
+<!--            }-->
+
+<!--        }-->
+
+<!--        tt = new user5();-->
+<!--        tt.userid ='또치!';-->
+<!--        tt.address = '12345';-->
+<!--        document.write(tt.userid);-->
+<!--        document.write(tt.addr);-->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--    </script>-->
+
+<script>
+    class user5{
+        //this = {}; // 시스템에 의해 자동생성
+        #userid='';
+        _address = '';
+
+        // setter :setName
+        set userid(userid){
+            // 함수 중지 시 중지시점에 return넣으면 됨
+            if(userid.length<6) {document.write('아이디가 짧아요! <br>'); return;}
+            this.#userid = userid;
+        }
+        set address(address){
+            this._address =address;
+        }
+        // getter : getName
+        get urid(){
+            return this.#userid;
+        }
+        get addr(){
+            return this._address;
+        }
+
+    }
+
+
+    class user6{
+        //this = {}; // 시스템에 의해 자동생성
+        #userid='';
+        _address = '';
+
+        // setter :setName
+        set userid(userid){
+            // 함수 중지 시 중지시점에 return넣으면 됨
+            if(userid.length<6) {document.write('아이디가 짧아요! <br>'); return;}
+            this.#userid = userid;
+        }
+        set address(address){
+            this._address =address;
+        }
+        // getter : getName
+        get urid(){
+            return this.#userid;
+        }
+        get addr(){
+            return this._address;
+        }
+
+    }
+
+    let info1 = new user5();
+    // let info2 = new user6();
+
+    // 객체(object)와 개체(instance)의 구분필요
+    // instance는 조상class에 의해 만들어진 결과물
+    // 상속여부를 알 수 있음
+    // document.write(user5 instanceof user6);
+</script>
+
+<script>
+    // 성적처리를 클래스로 만들어보기
+    //성적과 이름은 sungjuck이라는 클래스에 저장
+    // sungjukService 클래스에 computeSungJuk,showSungJuk이라는 포함
+
+
+    //  SungJuk 객체 안 computeSungJuk메서드에 매개변수를 전달하여 총점, 평균, 학점을 처리하고
+    //  SungJuk객체의 showSungJuk이라는 함수는 성적결과 출력
+
+    // class sungjuk{
+    //     constructor(name,math,eng,kor) {
+    //         this.name = name;
+    //         this.math = math;
+    //         this.eng = eng;
+    //         this.kor = kor;
+    //     }
+    // }
+    // class sungjukService{
+    //     #total = 0;
+    //     #avg = 0;
+    //     #grade = 0;
+    //     computeSungJuk(sj){
+    //         this.total  =  sj.kor + sj.eng + sj.math;
+    //         this.avg  =  ~~(this.total/3);
+    //         switch (~~(this.avg/10)){
+    //             case 10: this.grade='수'; break;
+    //             case 9: this.grade='수'; break;
+    //             case 8: this.grade='우'; break;
+    //             case 7: this.grade='미'; break;
+    //             case 6: this.grade='양'; break;
+    //             default : this.grade='가'; break;
+    //
+    //         }
+    //     }
+    //     showSungJuk(sj){
+    //         this.computeSungJuk(sj);
+    //         return   `이름 : ${sj.name} <br> 수학점수 : ${sj.math} <br>영어점수 : ${sj.eng} <br>국어점수 : ${sj.kor} <br>총점 : ${this.total} <br>평균 : ${this.avg} <br>학점 : ${this.grade} <br>`;
+    //     }
+    // }
+    //
+    // // 데이터 세팅
+    // let sj = [];
+    // sj[0] = new sungjuk('고길동',50,80,100);
+    // sj[1] =  new sungjuk('고길동',50,80,100);
+    // // sj[2] =  new sungjuk('둘리',20,80,100);
+    // // sj[3] =  new sungjuk('희동이',80,90,100);
+    // // sj[4] =  new sungjuk('또치',10,50,100);
+    // // sj[5] =  new sungjuk('도우너',70,40,88);
+    // // sj[6] =  new sungjuk('마이콜',90,90,90);
+    //
+    // // 결과 출력함수모음
+    // let fn =  new sungjukService();
+    //
+    // for(i of sj){
+    //     document.write(fn.showSungJuk(i));
+    //     document.write('*'.repeat(10)+'<br>');
+    // }
+</script>
+
+<script>
+
+    //값만 다루는 클래스(VO,DTO)
+    // class sungjuk{
+    //     _name= '';
+    //     #math =0;
+    //     #eng = 0;
+    //     #kor = 0;
+    //
+    //
+    //     #tot = 0;
+    //     #avg = 0;
+    //     #grade = '';
+    //
+    //     constructor(name,math,eng,kor){
+    //         this._name = name;
+    //         this.#math = math;
+    //         this.#eng =  eng;
+    //         this.#kor = kor;
+    //     }
+    //     set kor(kor){ this.#kor = kor;}
+    //     set tot(tot){this.#tot =tot;}
+    //     get tot(){ return this.#tot;}
+    //     set avg(avg){this.#avg =avg;}
+    //     get avg(){ return this.#avg;}
+    //     set grade(grade){this.#grade = grade;}
+    //     get grade(){return this.#grade;}
+    //     // 모든 클래스는 기본적으로 tosting 메서드를 포함하고있다.
+    //     // 다시 사용하면 부모클래스의 내용을 자식에서바꾸므로 orverriding이라고 한다.
+    // }
+
+    // 행동만 다루는 클래스
+    // class sungjukService{
+    //     computeSungJuk(sj){
+    //         sj.total  =  sj.kor + sj.eng + sj.math;
+    //         sj.avg  = sj.tot/3;
+    //         sj.grade= '';
+    //         switch (~~(sj.avg/10)){
+    //             case 10: sj.grade='수'; break;
+    //             case 9: sj.grade='수'; break;
+    //             case 8: sj.grade='우'; break;
+    //             case 7: sj.grade='미'; break;
+    //             case 6: sj.grade='양'; break;
+    //             default : sj.grade='가'; break;
+    //         }
+    //     }
+    //     showSungJuk(sj){
+    //         document.write( `이름 : ${sj._name} <br> 수학점수 : ${sj.math} <br>영어점수 : ${sj.eng} <br>국어점수 : ${sj.kor} <br>총점 : ${sj.tot} <br>평균 : ${sj.avg} <br>학점 : ${sj.grade} <br>`);
+    //     }
+    // }
+    //
+    // let stu1 = new sungjuk('둘리',80,80,80);
+    // let stu2 = new sungjuk('또치',81,81,81);
+    // let sjsrv = new sungjukService();
+    //
+    // sjsrv.computeSungJuk(stu1);
+    // sjsrv.computeSungJuk(stu2);
+    //
+    // sjsrv.showSungJuk(stu1);
+    // sjsrv.showSungJuk(stu2);
+    //
+    // console.log(stu1);
+    // console.log(stu2);
+
+// 1.멤버번슈 정의
+// 2.생성자 정의
+// 3.맴버변수에따른 set/get전부 만들기
+
+
+
+<!--//  데이터 선언 class-->
+<!--    class data{-->
+<!--        #name='';-->
+<!--        #kor = 0;-->
+<!--        #eng = 0;-->
+<!--        #math = 0;-->
+
+
+<!--        #total = 0;-->
+<!--        #avg = 0;-->
+<!--        #score = '';-->
+
+<!--        constructor(name,kor,eng,math) {-->
+<!--            this.#name = name;-->
+<!--            this.#kor = kor;-->
+<!--            this.#eng = eng;-->
+<!--            this.#math = math;-->
+<!--        }-->
+
+<!--        set name (name){this.#name = name};-->
+<!--        get name (){ return this.#name};-->
+<!--        set kor (kor){this.#kor = kor};-->
+<!--        get kor (){return this.#kor};-->
+<!--        set math (math){this.#math = math};-->
+<!--        get math (){ return this.#math};-->
+<!--        set eng (eng){this.#eng = eng};-->
+<!--        get eng (){ return this.#eng};-->
+<!--        set total (total){this.#total = total};-->
+<!--        get total (){ return this.#total};-->
+<!--        set avg (avg){this.#avg = avg};-->
+<!--        get avg (){ return this.#avg};-->
+<!--        set score (score){this.#score = score};-->
+<!--        get score (){ return this.#score};-->
+
+<!--        toString(){-->
+<!--            return `이름 : ${this.#name} <br> 수학점수 : ${this.#math} <br>영어점수 : ${this.#eng} <br>국어점수 : ${this.#kor} <br>총점 : ${this.#total} <br>평균 : ${this.#avg} <br>학점 : ${this.#score} <br>`-->
+<!--        }-->
+<!--    }-->
+
+<!--    // 행동만 다루는 클래스-->
+<!--    class sungjukService{-->
+<!--        computeSungJuk(sj){-->
+<!--            sj.total  =  sj.kor + sj.eng + sj.math;-->
+<!--            sj.avg  = sj.tot/3;-->
+<!--            switch (~~(sj.avg/10)){-->
+<!--                case 10: sj.score='수'; break;-->
+<!--                case 9: sj.score='수'; break;-->
+<!--                case 8: sj.score='우'; break;-->
+<!--                case 7: sj.score='미'; break;-->
+<!--                case 6: sj.score='양'; break;-->
+<!--                default : sj.score='가'; break;-->
+<!--            }-->
+<!--        }-->
+<!--        showSungJuk(sj){-->
+<!--            // document.write( `이름 : ${sj._name} <br> 수학점수 : ${sj.math} <br>영어점수 : ${sj.eng} <br>국어점수 : ${sj.kor} <br>총점 : ${sj.tot} <br>평균 : ${sj.avg} <br>학점 : ${sj.grade} <br>`);-->
+<!--        }-->
+<!--    }-->
+
+<!--    let stu1 = new data('둘리',123,123,123);-->
+<!--    let stu2 = new data('도우너',123,123,123);-->
+
+<!--    let act =  new sungjukService();-->
+<!--    console.log(stu1.name+ stu1.kor);-->
+<!--    act.computeSungJuk(stu1);-->
+<!--    act.computeSungJuk(stu2);-->
+<!--    document.write(stu1);-->
+<!--    document.write(stu2);-->
+
+
+<!--</script>
+
+<script src="./js/sungjuc.js"></script>
+<script>
+    let stu3 =  new data('고길동',80,50,100);
+    sungjukService.computeSungJuk(stu3);
+    document.write(stu3);
+
+    class hey{
+        #name = '';
+        constructor(name){
+            this.#name = name;
+        }
+        set name(name){
+            this.#name=name;
+        }
+        get name(){
+            return this.#name;
+        }
+        toString(){
+            return `${this.#name}님, 안녕하세요!`;
+        }
+    }
+
+
+    let str1 ='hello!';
+    let str2 ='hello!';
+    let str3 =new String('hello!');
+
+    str1[0]='o'
+    document.write(str1[0],str1[4]);
+
+
+
+    class glad {
+        #name = '';
+        #glad = '';
+        constructor(name,glad){
+            this.#name = name;
+            this.#glad = glad;
+        }
+        set name(name){
+            this.#name=name;
+        }
+        get name(){
+            return this.#name;
+        }
+        set glad(glad){
+            this.#glad=glad;
+        }
+        get glad(){
+            return this.#glad;
+        }
+        toString(){
+            return `${this.#name}, ${this.#glad}!`
+        }
+    }
+    document.write('<br>');
+    let heyho = new glad('호빵맨','안녕!!');
+    document.write(heyho);
+
+
+</script>
+</body>
+</html>

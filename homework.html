@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    class employees{
+        #employee_id=0;
+        _first_name='';
+        _last_name ='';
+        #email = '';
+        #phone_number = '';
+        #hire_date = '';
+        #job_id = '';
+        #salary = '';
+        #commision_pct = '';
+        #manager_id = '';
+        #department_id = '';
+        constructor(empid,fname,lname,email,ph,hiredt,sal,mgrid,jbid) {
+            this.#employee_id=empid;
+            this._first_name =fname;
+            this._last_name = lname;
+            this.#email = email;
+            this.#phone_number = ph;
+            this.#hire_date = hiredt;
+            this.#salary =sal;
+            this.#manager_id = mgrid;
+            this.#job_id = jbid;
+        }
+
+        //setter/getter
+        set employee_id(employee_id){ this.#employee_id = employee_id};
+        get employee_id(){return this.#employee_id};
+        set first_name(first_name){ this._first_name = first_name};
+        get first_name(){return this._first_name};
+        set last_name(last_name){ this._last_name = last_name};
+        get last_name(){return this._last_name};
+        set email(email){ this.#email = email};
+        get email(){return this.#email};
+        set phone_number(phone_number){ this.#phone_number = phone_number};
+        get phone_number(){return this.#phone_number};
+        set hire_date(hire_date){ this.#hire_date = hire_date};
+        get hire_date(){return this.#hire_date};
+        set job_id(job_id){ this.#job_id = job_id};
+        get job_id(){return this.#job_id};
+        set salary(salary){ this.#salary = salary};
+        get salary(){return this.#salary};
+        set commision_pct(commision_pct){ this.#commision_pct = commision_pct};
+        get commision_pct(){return this.#commision_pct};
+        set manager_id(manager_id){ this.#manager_id = manager_id};
+        get manager_id(){return this.#manager_id};
+        set department_id(department_id){ this.#department_id = department_id};
+        get department_id(){return this.#department_id};
+
+        toString(){
+            return `사원이름:${this._last_name,this._first_name} 부서:${this.#department_id} <br> `;
+        }
+    }
+
+    class departments{
+        #department_id =0;
+        #deparment_name ='';
+        #manager_id =0;
+        #location ='';
+        constructor(department_id,deparment_name,manager_id,location) {
+            this.#department_id =department_id;
+            this.#deparment_name =deparment_name;
+            this.#manager_id =manager_id;
+            this.#location =location;
+        }
+        set department_id(department_id){ this.#department_id = department_id};
+        get department_id(){return this.#department_id};
+        set deparment_name(deparment_name){ this.#deparment_name = deparment_name};
+        get deparment_name(){return this.#deparment_name};
+        set manager_id(manager_id){ this.#manager_id = manager_id};
+        get manager_id(){return this.#manager_id};
+        set location(location){ this.#location = location};
+        get location(){return this.#location};
+
+
+        toString(){
+            return this.#deparment_name;
+        }
+
+    }
+
+    class fn{
+        static findDept(emp,deptName){
+            emp.department_id = deptName;
+        }
+        static finDeptName(dep,emp){
+           if(dep.manager_id === emp.manager_id){
+               emp.department_id = dep.deparment_name;
+           }
+        }
+
+    }
+
+    let emps1 = new employees(1,'brown','loren','lroenb@testing.com','123-1234-12345','2023.01.31',5000,1,1);
+    let emps2 = new employees(2,'smith','karlton','karlton@testing.com','234-2345-1234','2023.01.31',2000,1,5);
+    let dep1 = new departments(20,'accounting',1,'boston');
+    let dep2 = new departments(40,'technition',2,'beograd');
+
+
+    fn.findDept(emps1,dep1);
+    fn.findDept(emps2,dep1);
+    fn.finDeptName(emps2,dep1);
+
+    document.write(emps1);
+    document.write(emps2);
+
+
+
+
+
+
+    // 게터세터 메이커
+    // let dohh = '#employee_id _first_name _last_name #email #phone_number #hire_date #job_id #salary #commision_pct #manager_id'.split(' ');
+    // let dohh = '#department_id'.split(' ');
+
+    for(let i of dohh){
+        document.write(`set ${i.slice(1)}(${i.slice(1)}){ this.${i} = ${i.slice(1)}};<br>`)
+    }
+    for(let i of dohh){
+        document.write(`get ${i.slice(1)}(){return this.${i}};<br>`)
+    }
+
+
+</script>
+</body>
+</html>

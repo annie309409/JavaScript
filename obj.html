@@ -70,7 +70,7 @@
      // 1~45사이의 정수 중 중복되지 않은 정수 출력
         lotto = new Set();
         while(lotto.size < 6){
-           lotto.add(parseInt((Math.random() * 45)+1));
+           lotto.add(~~((Math.random() * 45)+1));
         }
         lotto.forEach(e=>{
            div.innerHTML += `<div>${e}</div>`;
@@ -89,10 +89,10 @@
       //  SungJuk객체의 showSungJuk이라는 함수를 이용하여 처리결과 반환
 
       let SungJuk = new Object();
-      SungJuk.name = prompt('이름을 입력하세요!');
-      SungJuk.kor = prompt('국어성적을 입력하세요!');
-      SungJuk.eng = prompt('영어성적을 입력하세요!');
-      SungJuk.math = prompt('수학성적을 입력하세요!');
+      SungJuk.name ='둘리';
+      SungJuk.kor = 80;
+      SungJuk.eng = 70;
+      SungJuk.math = 90;
       SungJuk.computeSungJuk = function(){
           let result  = [];
           let total  =  parseInt(this.kor) + parseInt(this.eng) + parseInt(this.math);
@@ -122,5 +122,43 @@
 
 
   </script>
+
+<script>
+    let SungJuk2 = new Object();
+    SungJuk2.name ='둘리';
+    SungJuk2.kor = 80;
+    SungJuk2.eng = 70;
+    SungJuk2.math = 90;
+    SungJuk2.total = 0;
+    SungJuk2.avg = 0;
+    SungJuk2.grade = '';
+
+    // 데이터오브젝트와 별개로 관리 // 이렇게 하는 이유는 데이터 객체가 만들어질때마다 함수가 다시 만들어지기때문
+    // 따라서 함수는 따로 빼놓는 것이 좋음
+    // 협업을 위해서 모듈단위로 나눠 담아서 사용하는것이 좋음
+    let computeSungJuk =(sj)=>{
+        sj.total = sj.math + sj.kor + sj.eng;
+        sj.avg =  ~~(sj.total/3);
+        switch (sj.avg/10){
+            case 10:  sj.grade  = '수'; break;
+            case 9:  sj.grade  = '수'; break;
+            case 8:  sj.grade  = '우'; break;
+            case 7:  sj.grade  = '미'; break;
+            case 6:  sj.grade  = '양'; break;
+            default :  sj.grade  = '가';
+        }
+        return sj.grade;
+    }
+
+    // 매개변수에 전체 객체를 전달해서 사용한다.
+    let showSungJuk = (sj)=>{
+        return  `이름 : ${sj.name} <br> 수학점수 : ${sh.math} <br>영어점수 : ${sj.eng} <br>국어점수 : ${sj.kor} <br>총점 : ${sj.total} <br>평균 : ${sj.avg} <br>학점 : ${sj.grade} <br>`
+    }
+
+    computeSungJuk(SungJuk2);
+    div.innerHTML = showSungJuk(SungJuk2);
+
+
+</script>
 </body>
 </html>
