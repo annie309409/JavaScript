@@ -19,6 +19,7 @@
         #commision_pct = '';
         #manager_id = '';
         #department_id = '';
+        #manager_name = '';
         constructor(empid,fname,lname,email,ph,hiredt,sal,mgrid,jbid) {
             this.#employee_id=empid;
             this._first_name =fname;
@@ -54,9 +55,11 @@
         get manager_id(){return this.#manager_id};
         set department_id(department_id){ this.#department_id = department_id};
         get department_id(){return this.#department_id};
+        set manager_name(manager_name){ this.#manager_name = manager_name};
+        get manager_name(){return this.#manager_name};
 
         toString(){
-            return `사원이름:${this._last_name,this._first_name} 부서:${this.#department_id} <br> `;
+            return `사원이름:${this._last_name,this._first_name} 부서:${this.#department_id} 담당매니저 : ${this.#manager_name}<br> `;
         }
     }
 
@@ -88,46 +91,167 @@
     }
 
     class fn{
-        static findDept(emp,deptName){
-            emp.department_id = deptName;
+        static findDept(emp,dep){
+            dep.forEach(e=>{
+                if(e.manager_id===emp.manager_id){
+                    emp.department_id = e.deparment_name;
+                    emp.job_id = e.department_id;
+                }
+            })
         }
-        static finDeptName(dep,emp){
-           if(dep.manager_id === emp.manager_id){
-               emp.department_id = dep.deparment_name;
-           }
+        static findMgr(emp1,emp2){
+            emp2.forEach(e=>{
+                // console.log(e);
+                if(e.employee_id===emp1.manager_id){
+                        emp1.manager_name = e.first_name;
+                }
+            })
         }
-
     }
 
-    let emps1 = new employees(1,'brown','loren','lroenb@testing.com','123-1234-12345','2023.01.31',5000,1,1);
-    let emps2 = new employees(2,'smith','karlton','karlton@testing.com','234-2345-1234','2023.01.31',2000,1,5);
-    let dep1 = new departments(20,'accounting',1,'boston');
-    let dep2 = new departments(40,'technition',2,'beograd');
+    let emps=[];
+    emps.push(new employees(1,'brown','loren','lroenb@testing.com','123-1234-12345','2023.01.31',5000,1,1));
+    emps.push(new employees(2,'smith','karlton','karlton@testing.com','234-2345-1234','2023.01.31',2000,1,5));
+    emps.push(new employees(3,'francis','francine','karlton@testing.com','234-2345-1234','2023.01.31',2000,3,5));
+    emps.push(new employees(4,'Hall','Ryan','ryan@testing.com','234-2345-1234','2023.01.31',2000,3,5));
+
+    let dep=[];
+    dep.push( new departments(20,'accounting',1,'boston'));
+    dep.push( new departments(40,'technition',2,'beograd'));
+    dep.push( new departments(50,'marketing',3,'NY'));
+
+    emps.forEach(e=>{
+        fn.findDept(e,dep);
+        fn.findMgr(e,emps);
+        document.write(e);
+    })
+    // fn.findDept(emps[0],dep);
+    // fn.findDept(emps[1],dep);
+    // fn.findDept(emps[2],dep);
+    // fn.findDept(emps[3],dep);
+    // fn.findMgr(emps[0],emps);
+    // fn.findMgr(emps[1],emps);
+    // fn.findMgr(emps[2],emps);
+    // fn.findMgr(emps[3],emps);
+    // document.write(emps[0]);
+    // document.write(emps[1]);
+    // document.write(emps[2]);
+    // document.write(emps[3]);
 
 
-    fn.findDept(emps1,dep1);
-    fn.findDept(emps2,dep1);
-    fn.finDeptName(emps2,dep1);
 
-    document.write(emps1);
-    document.write(emps2);
+    //
+    // // 게터세터 메이커
+    // let dohh = '#manager_name'.split(' ');
+    // // let dohh = '#department_id'.split(' ');
+    //
+    // for(let i of dohh){
+    //     document.write(`set ${i.slice(1)}(${i.slice(1)}){ this.${i} = ${i.slice(1)}};<br>`)
+    // }
+    // for(let i of dohh){
+    //     document.write(`get ${i.slice(1)}(){return this.${i}};<br>`)
+    // }
 
 
-
-
-
-
-    // 게터세터 메이커
-    // let dohh = '#employee_id _first_name _last_name #email #phone_number #hire_date #job_id #salary #commision_pct #manager_id'.split(' ');
-    // let dohh = '#department_id'.split(' ');
-
-    for(let i of dohh){
-        document.write(`set ${i.slice(1)}(${i.slice(1)}){ this.${i} = ${i.slice(1)}};<br>`)
+    //클래스메이커
+    class value{
+        #className='';
+        #value='';
+        #kd = '';
+        constructor(className,value,kd) {
+            this.#className = className;
+            this.#value = value;
+            this.#kd = kd;
+        }
+        set value(value){this.#value = value}
+        get value(){ return this.#value}
+        set kd(value){this.#kd = value}
+        get kd(){ return this.#kd}
+        set className(value){this.#className = value}
+        get className(){ return this.#className}
+        toString(){
+            return this.#value
+        }
     }
-    for(let i of dohh){
-        document.write(`get ${i.slice(1)}(){return this.${i}};<br>`)
+
+    class clmk{
+        static varInputter(val){
+            let result = `class ${val.className} {<br>`;
+
+            val.value.forEach(e=>{
+                result += `${'&nbsp;'.repeat(20)}#${e}=''<br>`;
+            });
+
+            result += `constructor(`
+
+            val.value.forEach((e,idx)=>{
+                (idx === val.value.length-1)? result += `${e}){` : result += `${e},`;
+            });
+            console.log(val);
+            return result;
+        }
+        static getSetter(val){
+            let result = ``;
+            for(let i of val){
+                result +=`set ${i}(${i}){ this.#${i} = ${i}}`;
+            }
+            return result;
+        }
     }
 
+
+    let val =  new value('employees',['empid','emppw','empaddr','mgrid'],'str');
+    // document.write(val);
+    document.write(clmk.varInputter(val));
+
+
+
+
+    // 대학교 학번코드는 입학년도(2자리) +
+    //     학과번호(4자리) + 개인번호(6자리)로 구성
+    // 입학년도가 2022, 학과번호가 35, 개인번호가 157일때
+    // 완전한 학번코드를 작성하세요
+    // => 220035000157
+    document.write('<br>'.repeat(5))
+    let enterYr ='2022';
+    let depno ='35';
+    let personalno = '157';
+    let hakbun = enterYr.slice(2).padEnd(4,'0').concat(depno).concat(personalno.padStart(6,'0'));
+    document.write(hakbun+'<br>');
+
+
+    // (random*(max-min+1))+min 공식을 활용하여 ranInt라는 함수를 만들고 1~45사이 정수 6개 출력  > randInt(1,45);
+    let randInt=(strNo,endNo,ea)=>{
+        let num = new Set();
+        let result = '';
+        while(num.size <= ea){
+            num.add(~~(Math.random()*(endNo-strNo+1))+strNo);
+        }
+        for(i of num){
+            result=result.concat(i+'<br>');
+        }
+        return result;
+    }
+    document.write(randInt(1,45,8));
+
+
+
+    //년월일시분초 출력시 두자리 단위로 출력, 남는 자리는 0으로 채움 : 2023-2-1 12:8:15 = >2023-02-01 12:08:15
+
+    let dt = new  Date();
+    let yeardays = dt.toLocaleDateString().split('.');
+    let hours =dt.toLocaleTimeString().split(/ |:/);
+
+    document.write('<br>')
+    let result = `${yeardays[0]}-${yeardays[1].trim().padStart(2,'0')}-${yeardays[2].trim().padStart(2,'0')} ${hours[1]}:${hours[2]}:${hours[3]}`;
+    document.write(result);
+
+    document.write('<br>')
+    // 파일명이 abc.123.png일때, 파일이름과 확장자로 분리
+    let file= 'abc.123.2545.dkfjdsjk.png';
+    let extention =  file.slice(file.lastIndexOf('.')+1);
+    let filename =  file.slice(0, file.lastIndexOf('.'));;
+    document.write(`파일명:${filename} , 확장자명 : ${extention}`);
 
 </script>
 </body>
