@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // let num =10;
+        // //정상실행
+        // document.write('프로그램시작 <br>');
+        // //오류로 인한 실행중단
+        // document.write(`100/abc123=${100/abc123}`);
+        // document.write('<br>프로그램끝');
+        //
+        //
+        // document.write('프로그램시작 <br>');
+        // try{
+        //     document.write(`100/abc123=${100/abc123}`);
+        // }catch (e) {
+        //     document.write('오류발생!- 알수없는 계산식입니다.');
+        // }
+        // document.write('<br>프로그램끝<br>');
+        //
+        // try{
+        //     document.write('프로그램시작 <br>');
+        //     document.write(`100/abc123=${100/abc123}`);
+        //     document.write('<br>프로그램끝');
+        // }catch (e) {
+        //     document.write('오류발생!- 알수없는 계산식입니다.');
+        // }
+
+
+        // try{
+        //     document.write(`100/abc123=${100/abc123}`);
+        // }catch (e) {
+        //     document.write(`오류이름: ${e.name}<br>`);
+        //     document.write(`오류메세지: ${e.message}<br>`);
+        //     document.write(`오류발생 추적사항: ${e.stack}<br>`);
+        // }
+        //
+        // try{
+        //     document.write(sayHello);
+        // }catch(e){
+        //     if(e instanceof ReferenceError){
+        //         document.write(`오류:변수나 함수를 선언하세요!`);
+        //     }
+        // }
+
+        let checkAge=(age)=>{
+            if(age<0 || age >=100)
+                throw new RangeError;
+        }
+        try{
+            checkAge(150);
+        }catch (e) {
+            if(e instanceof RangeError) document.write('나이를 올바르게 입력하세요!');
+        }
+
+
+    </script>
+</body>
+</html>
