@@ -17,10 +17,23 @@
     // 4) 11에서 나머지를 뺀 값의 마지막 숫자와
     //    13번째 숫자의 일치여부 확인
 
-    // 1  2  3  4  5  6 -  1  2  3  4  5  6      7
+    //
+
+    // 1  2  3  4  5  6 -  1  2  3  4  5  6  7
     // 2  3  4  5  6  7    8  9  2  3  4  5
     // 2  6 12 20 30 42    8 18  6 12 20 30
     // ? == 7
+
+    let jumin = '1 2 3 4 5 6 7 8 9 1 1 2 3'.split(' ');
+    let j=1;
+    let result =0;
+    for(let i =0; i<jumin.length-1;i++){
+        (j<9)?j++:j=2;
+        result += j*jumin[i];
+    }
+    result = 11-(result%11);
+    (result>=10)? result /= 10 : result=result;
+    console.log(result);
 
 
   </script>
