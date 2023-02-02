@@ -34,18 +34,18 @@
   // 역직렬화
   // user = '{"userid":"abcd","password":"efg"}';
   // let obj= JSON.parse(user);
-  // // let json = JSON.stringify(obj);
-  //
-  // // document.write(obj.userid+"<br>")
-  // // document.write(obj.password);
-  //
-  //
-    let sjs = '[ {"name": "혜교","grd": "수"},{"name": "지현","grd": "미"},{"name": "수지","grd": "가"} ]';
-    let obj=JSON.parse(sjs);
+  // let json = JSON.stringify(obj);
 
-  //배열객체를 구성하는 개별요소에 접근하려면 객체명[인덱스],속성명 형식으로 사용해야함
-    document.write(obj[1].name+'<br>');
-    document.write(obj[2].name+'<br>');
+  // document.write(obj.userid+"<br>")
+  // document.write(obj.password);
+
+  //
+  //   let sjs = '[ {"name": "혜교","grd": "수"},{"name": "지현","grd": "미"},{"name": "수지","grd": "가"} ]';
+  //   let obj=JSON.parse(sjs);
+  //
+  // //배열객체를 구성하는 개별요소에 접근하려면 객체명[인덱스],속성명 형식으로 사용해야함
+  //   document.write(obj[1].name+'<br>');
+  //   document.write(obj[2].name+'<br>');
 
 
 
@@ -62,33 +62,49 @@
 
   //filter함수로 객체 탐색시 대상 객체는 자료형이여야함;
 
-    sjs = '{"sjs":[{"name": "혜교","grd": "수"},{"name": "지현","grd": "미"},{"name": "수미","grd": "가"}]}';
-     obj=JSON.parse(sjs);
+  //   sjs = '{"sjs":[{"name": "혜교","grd": "수"},{"name": "지현","grd": "미"},{"name": "수미","grd": "가"}]}';
+  //    obj=JSON.parse(sjs);
+  //
+  //    // filter안의 콜백함수 사용
+  //    // let js = obj.sjs.filter(f=>(f.name ==='지현'));
+  //   //filter는 대상객체의 요소를 순회해 가면서 콜백함수에 매개변수로 넘겨서 처리하는 함수이다.
+  //    let js = obj.sjs.filter(function(s){
+  //        if (s.name === '지현') return s;
+  //    });
+  //    document.write(JSON.stringify(js));
+  //    //map, reduce, filter : 고차함수
+  //
+  //    console.log(js);
+  //
+  //    // console.log(js);
+  //   // document.write(sj('지현')+'<br>');
+  //
+  //
+  //   // 배열에서 값이 존재하고 있는지?
+  //
+  //
+  //   // user배열에서 abc123의 아이디가 존재하는지 확인?
+  // user=['abc456','abc789','xyz123','abc123'];
+  // (user.indexOf('abc123') >= 0)? document.write(user.indexOf('abc123')) : document.write('값이 존재하지 않음');
+  //
+  //
 
-     // filter안의 콜백함수 사용
-     // let js = obj.sjs.filter(f=>(f.name ==='지현'));
-    //filter는 대상객체의 요소를 순회해 가면서 콜백함수에 매개변수로 넘겨서 처리하는 함수이다.
-     let js = obj.sjs.filter(function(s){
-         if (s.name === '지현') return s;
-     });
-     document.write(JSON.stringify(js));
-     //map, reduce, filter : 고차함수
-
-     console.log(js);
-
-     // console.log(js);
-    // document.write(sj('지현')+'<br>');
-
-
-    // 배열에서 값이 존재하고 있는지?
-
-
-    // user배열에서 abc123의 아이디가 존재하는지 확인?
-  user=['abc456','abc789','xyz123','abc123'];
-  (user.indexOf('abc123') >= 0)? document.write(user.indexOf('abc123')) : document.write('값이 존재하지 않음');
-
-
-
+  // let user={
+  //     'userid': 'avx',
+  //     'userpw': 'ddd',
+  //     toString(){
+  //         return `${this.userid} <br>${this.userpw}`
+  //     }
+  // }
+  // document.write(user+'<br>');
+  //
+  // user={
+  //     'userid': 'avx2',
+  //     'userpw': 'ddd2',
+  // }
+  // let json = JSON.stringify(user);
+  // document.write(json);
+  //
 
 
 </script>

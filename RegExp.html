@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+<!-- 아이디패턴 검증방법 -->
+//아이디는 길이는 최소 6자 최대 15자 이하 _,소문자,숫자,- 등을 사용
+    const re = /^[a-z0-9-_]{6,15}$/;
+    let userid =[];
+    userid.push('abcd12345');
+    userid.push('A22ABC45');
+    userid.push('xz254245ZZZ');
+    userid.push('123abc');
+    userid.push('123abcdsklfjsdlfklsdkflsdkfksdl');
+
+    userid.forEach(e=>{
+        (re.test(e))? document.write(`통과된값:${e}<br>`):document.write(`통과되지 않은값:${e}<br>`);
+    });
+
+    document.write('*'.repeat(20)+'<br>');
+    const re1 = /^[a-z0-9_-]+@[a-z0-9]+\.[a-z\.]{3,5}$/;
+    let email=[];
+    email.push('abc123@xyz987.com');
+    email.push('abc123@abc123.cosadsadasdas.kr');
+    email.push('abc123@xyz987.co.kr');
+    email.push('aSSS123@xyz987.co.kr');
+    email.push('aSSS123@xyz987.co.jp.uk.kr');
+    email.push('sdfsdfdsfsdf@xyzsdfsdfsdfsdf987.co.kr');
+    email.push('sdfsdfdsfsdf@xyzsdfsdfsdfsdf987.co.uk');
+    email.push('sdf.comommommm');
+
+
+    email.forEach(e=>{
+        (re1.test(e))? document.write(`pass:${e}<br>`):document.write(`fail:${e}<br>`);
+    });
+
+    document.write('*'.repeat(20)+'<br>');
+    // 휴대폰번호는 010 011 016 017 018 019중 하나, 지역번호 3~4자리, 나머지는 4자리구성
+    const tel = /^01[06817]-[0-9]{3,4}-[0-9]{4}$/;
+    let ph = [];
+    ph.push('010-2613-0742');
+    ph.push('123-456-789');
+    ph.push('011-00000-000000');
+    ph.push('018-0345-67204');
+    ph.push('016-777-7179');
+
+    ph.forEach(e=>{
+        (tel.test(e))? document.write(`pass:${e}<br>`):document.write(`fail:${e}<br>`);
+    });
+
+    document.write('*'.repeat(20)+'<br>');
+    //전화번호 패턴
+    //국번 2~3자리 지역번호 3~4자리 나머지는 4자리
+    const tel2 = /^0[1-9]{1,2}-[0-9]{3,4}-[0-9]{4}$/;
+    let ph2 = [];
+    ph2.push('010-2613-0742');
+    ph2.push('123-456-789');
+    ph2.push('02-456-7899');
+    ph2.push('011-00000-000000');
+    ph2.push('018-0345-67204');
+    ph2.push('016-777-7179');
+    ph2.forEach(e=>{
+        (tel2.test(e))? document.write(`pass:${e}<br>`):document.write(`fail:${e}<br>`);
+    });
+
+
+</script>
+</body>
+</html>

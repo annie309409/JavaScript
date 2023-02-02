@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button>랜덤창 시작</button>
+    <button>렌덤창 중지</button>
+    <script>
+        const bt = document.getElementsByTagName('button');
+        let wind = '';
+        let movewin =()=>{
+            let result = [];
+                result[0]=~~(Math.random()*1000);
+                result[1]=~~(Math.random()*1000);
+            return result;
+        };
+        let rsizewin =()=>{};
+
+        let strt = ()=>{
+            let wid = movewin()[0];
+            let hei = movewin()[1];
+
+            wind = window.open('./oop.html',null,'popup, width=500px, height=200px');
+
+            wind.moveTo(wid,hei);
+        };
+        let stopp = ()=>{
+
+        };
+
+        bt[0].onclick= strt;
+        bt[1].onclick= stopp;
+    </script>
+</body>
+</html>
