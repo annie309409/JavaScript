@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button onclick="sayHello()">이벤트1</button>
+    <button id="btn2">이벤트2</button>
+    <button id="btn3">이벤트3</button>
+    <script>
+        let sayHello= ()=>{alert('함수가 실행되었습니다!');}
+        //dom 탐색
+        let btn3 = document.querySelector('#btn3');
+        //이벤트 실행
+        btn3.addEventListener('click',sayHello);
+    </script>
+
+    <form action="">
+        <div><label for="usr_id">아이디</label><input type="text" id="usr_id" name="user_id"></div>
+        <div><label for="usr_ph">전화번호</label><input type="text" id="usr_ph" name="user_phone" disabled></div>
+        <div><label for="usr_age">나이</label><input type="text" id="usr_age" name="user_age" disabled></div>
+        <p id="msg">아이디부터 차례로 입력해주세요!</p>
+    </form>
+    <script>
+        let usr_id  = document.querySelector('#usr_id');
+        let usr_ph  = document.querySelector('#usr_ph');
+        let usr_age  = document.querySelector('#usr_age');
+        let msg  = document.querySelector('#msg');
+        let flag = false;
+        //반복함수
+        let chck = (tt,reRe,uid)=>{
+            let result = `${tt}가 올바른 형식이 아닙니다.`;
+            flag=false;
+            msg.style.color='red';
+            let re = reRe;
+            if(re.test(uid)){result=`${tt}가 올바른 형식입니다.`; flag=true; msg.style.color='black'}
+            msg.textContent=result;
+        }
+        // 아이디 제대로 입력되었는지 체크
+        let ch_id =(uid)=>{
+            chck('아이디', /^[a-z]{5,17}$/,uid);
+        };
+        // 전화번호 제대로 입력되었는지 체크= 011,012,015,016,018,019로 시작
+        let ch_ph =(uph)=>{
+            chck('전화번호', /^01[125689]-\d{3,4}-\d{4}$/,uph);
+        };
+        // 나이가 제대로 입력되었는지 체크
+        let ch_ag =(uag)=>{
+            chck('나이', /^\d{1,2}$|^100$/,uag);
+        };
+
+        //이벤트 핸들러 등록
+        usr_id.addEventListener('blur',(e)=>{
+            ch_id(e.currentTarget.value);
+            if(flag){
+                usr_ph.removeAttribute('disabled');
+            }
+        });
+        usr_ph.addEventListener('blur',(e)=>{
+            ch_ph(e.currentTarget.value);
+            if(flag){
+                usr_age.removeAttribute('disabled');
+            }
+        });
+        usr_age.addEventListener('blur',(e)=>{ch_ag(e.currentTarget.value);});
+        
+    </script>
+    <h2>글자수 체크</h2>
+    <textarea id="intro" rows="5" cols="50"></textarea>
+    <div><span id="charcnt">0</span>/100</div>
+    <script>
+        let intro = document.querySelector('#intro');
+        let charcnt = document.querySelector('#charcnt');
+
+        intro.addEventListener('keydown',(e)=>{
+            charcnt.textContent = e.currentTarget.value.length+1;
+            if(intro.value.length>=100){
+                    charcnt.textContent=100;
+                    e.currentTarget.value = e.currentTarget.value.substring(0,100);
+            }
+        });
+    </script>
+    <h2>회원가입 validator</h2>
+    <form action="">
+        <div>
+            <div>아이디(uid)
+                <input type="text" name="uid"></div>
+            <div id="warn1" class="warn"></div>
+
+            <div>비밀번호(pwd)
+                <input type="password" name="pwd"></div>
+            <div id="warn2" class="warn"></div>
+
+            <div>이름(name)
+                <input type="text" name="name"></div>
+            <div id="warn3" class="warn"></div>
+
+            <div>성별(gender)
+                남<input type="radio" name="gender" value="m">
+                여<input type="radio" name="gender" value="f">
+            </div>
+            <div id="warn4" class="warn"></div>
+
+            <button type="button" id="joinbtn">입력완료</button>
+        </div>
+    </form>
+    <script>
+        let uid = document.querySelector('input[name="uid"]');
+        let pwd = document.querySelector('input[name="pwd"]');
+        let name = document.querySelector('input[name="name"]');
+        let gender = document.querySelectorAll('input[name="gender"]');
+        console.log(gender[0].checked,gender[1].checked);
+
+        let wrn = document.querySelectorAll('.warn');
+        let joinbtn =  document.querySelector('#joinbtn');
+        let checkJoinFrm =(wRn,val,dom,msg)=>{
+            wRn.textContent = '';
+            if(dom.value == val){
+                wRn.textContent = `${msg}를 입력하세요!!`;
+                wRn.style.color='red';
+                dom.focus();
+            }
+        };
+        let ckboxFrm=(val1,val2)=>{
+            wrn[3].textContent = ``;
+            if(val1.checked=== false && val2.checked === false){
+                wrn[3].textContent = `성별을 선택하세요!`;
+                wrn[3].style.color='red';
+            }
+            val1.setAttribute('checked',true);
+        }
+
+        joinbtn.addEventListener('click',()=>{
+            checkJoinFrm(wrn[0],'',uid,'아이디');
+            checkJoinFrm(wrn[1],'',pwd,'패스워드');
+            checkJoinFrm(wrn[2],'',name,'이름');
+            ckboxFrm(gender[0],gender[1]);
+        });
+    </script>
+</body>
+</html>
