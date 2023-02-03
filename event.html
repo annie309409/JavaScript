@@ -110,32 +110,35 @@
         let pwd = document.querySelector('input[name="pwd"]');
         let name = document.querySelector('input[name="name"]');
         let gender = document.querySelectorAll('input[name="gender"]');
-        console.log(gender[0].checked,gender[1].checked);
-
         let wrn = document.querySelectorAll('.warn');
         let joinbtn =  document.querySelector('#joinbtn');
+        for(let i of wrn){ i.style.color='red';}
+
         let checkJoinFrm =(wRn,val,dom,msg)=>{
             wRn.textContent = '';
             if(dom.value == val){
                 wRn.textContent = `${msg}를 입력하세요!!`;
-                wRn.style.color='red';
                 dom.focus();
             }
         };
-        let ckboxFrm=(val1,val2)=>{
+
+        let ckboxFrm=(val)=>{
             wrn[3].textContent = ``;
-            if(val1.checked=== false && val2.checked === false){
-                wrn[3].textContent = `성별을 선택하세요!`;
-                wrn[3].style.color='red';
-            }
-            val1.setAttribute('checked',true);
+            val.forEach(e=>{
+                if(e.checked){
+                    wrn[3].textContent = ``;
+                }else{
+                    wrn[3].textContent = `성별을 선택하세요!`;
+                }
+            });
+            val[0].setAttribute('checked',true);
         }
 
         joinbtn.addEventListener('click',()=>{
             checkJoinFrm(wrn[0],'',uid,'아이디');
             checkJoinFrm(wrn[1],'',pwd,'패스워드');
             checkJoinFrm(wrn[2],'',name,'이름');
-            ckboxFrm(gender[0],gender[1]);
+            ckboxFrm(gender);
         });
     </script>
 </body>
