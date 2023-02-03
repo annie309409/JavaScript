@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div>
+    <p id="one" class="two">시간은 금이라구 친구</p>
+    <p id="two" class="two">별의 영역이 광활하다는 건 놀라운 것이 아니다.
+      인류가 그것을 측정해낸 게 놀랍다</p>
+    <p id="three" class="fourth">어디서도 보지 못했던,
+      아무도 경험하지 못했던 완전히 새로운 게임</p>
+
+    <p>여러 요소들을 태그이름으로 찾으려면
+      document.getElementsByTagName를 사용,
+      반환값은 HTMLCollection객체(유사배열)에 저장</p>
+
+    <p>여러 요소들을 클래스이름으로 찾으려면
+      document.getElementsByClassName를 사용,
+      반환값은 HTMLCollection객체(유사배열)에 저장</p>
+
+    <p>여러 요소들을 클래스 선택자로 찾으려면
+      document.querySelectorAll을 사용,
+      반환값은 NodeList객체(유사리스트)에 저장</p>
+  </div>
+
+  <script>
+    const p1 =  document.querySelectorAll('.two');
+    const p2 =  document.querySelectorAll('.fourth');
+    const pTag =document.getElementsByTagName('p');
+    const title =document.getElementsByTagName('title');
+    const two= document.getElementsByClassName('two');
+
+    title[0].innerHTML = '바꾸자!';
+
+    two[0].style.color = 'blue';
+    two[1].style.backgroundColor = 'orange';
+
+  </script>
+  <div>
+    <p class="fifth">시간은 금이라구 친구</p>
+    <p class="fifth">별의 영역이 광활하다는 건 놀라운 것이 아니다.
+      인류가 그것을 측정해낸 게 놀랍다</p>
+    <p class="sixth">어디서도 보지 못했던,
+      아무도 경험하지 못했던 완전히 새로운 게임</p>
+  </div>
+  <script>
+    let fifth1= document.querySelector('.fifth');
+    let fifth2= document.querySelectorAll('.fifth');
+
+
+
+    fifth1.style.textDecoration= 'underline';
+    fifth2.forEach(e=> e.style.fontWeight ='700');
+
+
+  </script>
+
+  <div><img alt="이미지"/></div>
+  <div><button type="button">이미지</button></div>
+  <script>
+    const btn1 = document.querySelector('button');
+    const img = document.querySelector('div>img');
+    const imgs=['result20.png','result15.png','result16.png','result17.png']
+    let showimg = ()=>{
+      let ran = ~~(Math.random()*4);
+      img.setAttribute('src',`./img/${imgs[ran]}`);
+      img.setAttribute('alt','노드테스트 이미지');
+    };
+    btn1.onclick=showimg;
+  </script>
+
+
+  <div class="creatImg"></div>
+  <button type="button">이미지만들기!</button>
+  <script>
+    const img2 =  document.querySelector('.creatImg');
+    const img2btn =  document.querySelector('.creatImg+button');
+    let showimg2 = ()=>{
+      let img  = document.createElement('img');
+      img.setAttribute('src','./img/zebra.jpg');
+      img.setAttribute('width','200px');
+      // img2.appendChild(img);
+      img2.innerHTML = img.outerHTML;
+    };
+    img2btn.onclick= showimg2;
+
+  </script>
+
+<!--  성적결과리스트 -->
+  <div class="sj"></div>
+  <script>
+    const sj =  document.querySelector('.sj');
+  // table , tr, th, td태그등을 이용하여 이름, 국어, 수학을 목록형태로 출력
+    let sub = ['이름','국어','영어','수학'];
+    let sjdata = [['이름','국어','영어','수학'],['지현',98,98,98],['수지',98,98,98],['혜교',98,98,98],['도우너',98,98,98],['고길동',98,98,98],['둘리',98,98,98]];
+
+    //테이블 생성
+    let table = document.createElement('table');
+    table.setAttribute('border','1px solid black');
+    table.setAttribute('width','500px');
+    table.setAttribute('cellspacing','0');
+    table.setAttribute('cellpadding','10');
+    let tr =  document.createElement('tr');
+    let th =  document.createElement('th');
+    let txt = document.createTextNode('');
+    let td =  document.createElement('td');
+    // div안에 table 추가
+    sj.appendChild(table);
+    // 테이블안에 tr추가
+    table.appendChild(tr);
+
+    for(let i =0; i<sjdata.length; i++){
+      tr =  document.createElement('tr');
+      table.appendChild(tr);
+        for (let j of sjdata[i]){
+          txt = document.createTextNode(j);
+          (i===0)?(th = document.createElement('th'),tr.appendChild(th),th.appendChild(txt))
+                  :(td = document.createElement('td'),td.setAttribute('align','center'), tr.appendChild(td),td.appendChild(txt));
+        }
+    }
+  </script>
+  <h2>시,구,동 검색</h2>
+  <div>
+    <select id="sido"></select>
+    <select id="gugun"></select>
+    <select id="dong"></select>
+  </div>
+  <h3>주소결과 출력</h3>
+<!--  <script>-->
+<!--    let sido = ['지역','서울','경기','부산','인천','대전','세종','광주','대구','울산','충북','충남','경북','경남','제주'];-->
+<!--    let gugun =[-->
+<!--          '군-구선택 광진구 중랑구 종로구 영등포구 구로구 강서구 강남구 강북구 성북구 양천구'.split(' '),-->
+<!--          '군-구선택 성남 용인 수원 부천 과천 광명 고양 파주'.split(' '),-->
+<!--          '군-구선택 강서 사상 부산진 동구 남구 사하구 영도구 중구 북구 금정구 기장군'.split(' '),-->
+<!--          '군-구선택 강화군 부평구 연수구'.split(' '),-->
+<!--    ]-->
+<!--    let dong =[[-->
+<!--          '읍,면,동선택 성동 용동 수동 부동 과동 광동 고동 파동'.split(' '),-->
+<!--          '강화동 부평동'.split(' '),-->
+<!--          '강서동 사상동 부산동'.split(' '),-->
+<!--          '광진동 서초동 송도동'.split(' '),-->
+<!--           ],[-->
+<!--          '강화동 부평동'.split(' '),-->
+<!--          '강서동 사상동 부산동'.split(' '),-->
+<!--          '광진동 서초동 송도동'.split(' '),-->
+<!--          '성동 용동 수동 부동 과동 광동 고동 파동'.split(' '),-->
+<!--            ],[-->
+<!--            '강화동 부평동'.split(' '),-->
+<!--            '강서동 사상동 부산동'.split(' '),-->
+<!--            '광진동 서초동 송도동'.split(' '),-->
+<!--            '성동 용동 수동 부동 과동 광동 고동 파동'.split(' '),-->
+<!--          ],[-->
+<!--            '강화동 부평동'.split(' '),-->
+<!--            '강서동 사상동 부산동'.split(' '),-->
+<!--            '광진동 서초동 송도동'.split(' '),-->
+<!--            '성동 용동 수동 부동 과동 광동 고동 파동'.split(' '),-->
+<!--          ]-->
+<!--    ]-->
+<!--    let sel =  document.querySelectorAll('select');-->
+<!--    let finAdd = document.querySelector('h3');-->
+<!--    let option=  document.createElement('option');-->
+<!--    let txtt='';-->
+<!--    option=document.createElement('option');-->
+<!--    txtt = document.createTextNode('군-구');-->
+<!--    option.appendChild(txtt);-->
+<!--    sel[1].appendChild(option);-->
+
+<!--    option=document.createElement('option');-->
+<!--    txtt = document.createTextNode('읍&#45;&#45;면&#45;&#45;동');-->
+<!--    option.appendChild(txtt);-->
+<!--    sel[2].appendChild(option);-->
+<!--    let getSido = ()=>{-->
+<!--      sido.forEach((e,idx)=>{-->
+<!--        option = document.createElement('option');-->
+<!--        txtt = document.createTextNode(e);-->
+<!--        sel[0].appendChild(option);-->
+<!--        option.setAttribute('value',idx);-->
+<!--        option.appendChild(txtt);-->
+<!--      });-->
+<!--    };-->
+<!--    getSido();-->
+
+<!--    let getGugun = ()=>{-->
+<!--      let sido =sel[0].options[sel[0].selectedIndex].value;-->
+<!--      sel[1].innerHTML='';-->
+<!--      gugun[sido-1].forEach((e,idx)=>{-->
+<!--        option = document.createElement('option');-->
+<!--        txtt = document.createTextNode(e);-->
+<!--        sel[1].appendChild(option);-->
+<!--        option.setAttribute('value',idx);-->
+<!--        option.appendChild(txtt);-->
+<!--      });-->
+<!--    };-->
+
+<!--    let getDong = ()=>{-->
+<!--      let sido =sel[0].options[sel[0].selectedIndex].value;-->
+<!--      let gugun =sel[1].options[sel[1].selectedIndex].value;-->
+<!--      sel[2].innerHTML='';-->
+<!--      dong[sido-1][gugun-1].forEach((e)=>{-->
+<!--        option = document.createElement('option');-->
+<!--        txtt = document.createTextNode(e);-->
+<!--        sel[2].appendChild(option);-->
+<!--        option.appendChild(txtt);-->
+<!--      });-->
+
+<!--    };-->
+<!--    let getAddr = ()=>{-->
+<!--      let sido =sel[0].options[sel[0].selectedIndex].text;-->
+<!--      let gugun =sel[1].options[sel[1].selectedIndex].text;-->
+<!--      let dong =sel[2].options[sel[2].selectedIndex].text;-->
+<!--      finAdd.innerHTML = `${sido}시 ${gugun} ${dong}`;-->
+<!--    };-->
+<!--    sel[0].onchange = getGugun;-->
+<!--    sel[1].onchange = getDong;-->
+<!--    sel[2].onchange = getAddr;-->
+
+<!--  </script>-->
+  <script>
+    let sido = ['서울특별시','경기도','인천광역시','부산광역시','제주자치도'];
+    let gugun =[
+      ['강남구', '서초구', '종로구', '송파구'],
+      ['과천시', '광명시', '성남분당구'],
+      ['연수구'],
+      ['부산진구'],
+      ['서귀포시']
+    ]
+    let dong =[[['논현동','대치동','삼성동'], ['반포동','방배동','양재동'],['광희동','명동','충무로'],['가락동','석촌동']],
+            [['과천동'],['광명동'],['대장동']],
+            [['연수동']],
+            [['개금동','가야동']],
+            [['강정동']]]
+    let sel =  document.querySelectorAll('select');
+    let finAdd = document.querySelector('h3');
+    let option=  document.createElement('option');
+    let addrTitle=(title,selidx,title2)=>{
+      sel[selidx].innerHTML='';
+      option=document.createElement('option');
+      txtt = document.createTextNode(title2);
+      option.appendChild(txtt);
+      sel[selidx].appendChild(option);
+
+      title.forEach((e)=>{
+        option = document.createElement('option');
+        txtt = document.createTextNode(e);
+        sel[selidx].appendChild(option);
+        option.appendChild(txtt);
+      });
+    }
+    let noAddr=(title,selidx)=>{
+      sel[selidx].innerHTML='';
+      option=document.createElement('option');
+      txtt = document.createTextNode(title);
+      option.appendChild(txtt);
+      sel[selidx].appendChild(option);
+    }
+
+    let txtt='';
+    option=document.createElement('option');
+    txtt = document.createTextNode('--군-구--');
+    option.appendChild(txtt);
+    sel[1].appendChild(option);
+
+    option=document.createElement('option');
+    txtt = document.createTextNode('읍--면--동');
+    option.appendChild(txtt);
+    sel[2].appendChild(option);
+    let getSido = ()=>{
+      addrTitle(sido,0,'지역선택');
+    };
+    getSido();
+
+    let getGugun = ()=>{
+      noAddr('읍--면--동',2);
+      if(sel[0].selectedIndex!=0){
+        addrTitle(gugun[sel[0].selectedIndex-1],1,'-구,군선택-');
+      }else{
+        noAddr('--군-구--',1);
+      }
+    };
+
+    let getDong = ()=>{
+      if(sel[1].selectedIndex!=0){
+        addrTitle(dong[sel[0].selectedIndex-1][sel[1].selectedIndex-1],2,'동 선택');
+      }else{
+        noAddr('읍--면--동',2);
+      }
+
+    };
+    let getAddr= ()=>{
+      if(sel[2].selectedIndex!=0){
+        // finAdd.innerText=`창 주소 :
+        // ${sel[0].value} ${sel[1].value} ${sel[2].value}`;
+        finAdd.innerHTML=`창 주소 :
+        ${sel[0].value} ${sel[1].value} ${sel[2].value}`;
+
+      }
+    };
+
+    sel[0].onchange = getGugun;
+    sel[1].onchange = getDong;
+    sel[2].onchange = getAddr;
+
+  </script>
+
+  <span>~1</span>
+  <span>-2-</span>
+  <span>-3-</span>
+  <p>게임목록</p>
+  <ul class="games"></ul>
+
+  <script>
+    let msg= document.querySelectorAll('span');
+    let games= document.querySelector('ul.games');
+
+    msg[0].innerHTML= '<p>hello! world!!<p>';
+    msg[1].innerText= '<p>hello! world!!</p>';
+    msg[2].textContent= '<p>hello! world!!</p>';
+    games.innerHTML = '<li>포켓몬 아르세우스</li>'
+    games.textContent += '<li>GTA5</li>'
+  </script>
+</body>
+</html>
