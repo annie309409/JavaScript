@@ -124,13 +124,11 @@
 
         let ckboxFrm=(val)=>{
             wrn[3].textContent = ``;
-            val.forEach(e=>{
-                if(e.checked){
+            if(val[0].checked || val[1].checked){
                     wrn[3].textContent = ``;
-                }else{
+            }else{
                     wrn[3].textContent = `성별을 선택하세요!`;
-                }
-            });
+            }
         }
 
         joinbtn.addEventListener('click',()=>{
