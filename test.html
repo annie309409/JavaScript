@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="btn">
+  <div class="btn">
+    <div class="btn">
+      버튼클릭!
+    </div>
+  </div>
+</div>
+<script>
+  let btn= document.querySelectorAll('.btn');
+  btn.forEach((e,idx)=>{
+    e.addEventListener('click',(e)=>{
+      fn(e,idx);
+    },false)
+  })
+  let fn = (e,idx)=>{
+      e.stopPropagation();
+     alert('함수실행!'+idx)
+  }
+
+</script>
+</body>
+</html>

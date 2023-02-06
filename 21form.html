@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>회원가입 validator</h2>
+    <form  name="join1">
+        <div>
+            <div>아이디(uid)
+                <input type="text" name="uid">
+            </div>
+            <div id="warn1" class="warn"></div>
+
+            <div>비밀번호(pwd)
+                <input type="password" name="pwd">
+            </div>
+
+            <div>비밀번호(pwd) 확인
+                <input type="password" name="repwd">
+            </div>
+            <div id="warn6" class="warn"></div>
+
+            <div>이름(name)
+                <input type="text" name="name"></div>
+            <div id="warn3" class="warn"></div>
+
+            <div>성별(gender)
+                남<input type="radio" name="gender" value="m">
+                여<input type="radio" name="gender" value="f">
+            </div>
+            <div id="warn4" class="warn"></div>
+
+            <button type="button" id="joinbtn">입력완료</button>
+        </div>
+    </form>
+    <script>
+        // let frm1= document.forms.join1;
+        let frm1= document.join1;
+        let wrn = document.querySelectorAll('.warn');
+        let joinbtn =  document.querySelector('#joinbtn');
+        for(let i of wrn){ i.style.color='red';}
+
+        joinbtn.addEventListener('click',()=>{
+            for(let i of wrn){ i.textContent='';}
+
+            if(frm1.uid.value ==''){
+                wrn[0].textContent='값을 입력해주세요!';}
+            else if(frm1.pwd.value != frm1.repwd.value || frm1.pwd.value == '') {
+                if(frm1.pwd.value==''){
+                    wrn[1].textContent = '비밀번호를 입력해주세요!';
+                }else{
+                    wrn[1].textContent = '비밀번호가 일치하지 않습니다!';
+                }
+            }
+            else if(frm1.name.value == ''){
+                wrn[2].textContent='이름을 입력하세요!';
+            }
+            else if(!frm1.gender[0].checked &&!frm1.gender[1].checked){
+                wrn[3].textContent='성별을 선택하세요!';
+            }else{
+                frm1.method ='post';
+                frm1.action='server/21join.jsp';
+                frm1.submit();
+            }
+        })
+    </script>
+
+
+<form  name="join">
+    <label for="user_name">이름</label>
+    <input type="text" id="user_name">
+    <label for="user_pw">패스워드</label>
+    <input type="password" id="user_pw">
+    <button>로그인</button>
+</form>
+
+<script>
+    let join= document.join;
+    let btn = join.button;
+    btn.addEventListener('click',()=>{
+        if(join.user_name!='' && join.user_pw !=''){
+            join.action='server/21join.jsp';
+            join.method='post';
+            join.submit();
+        }
+    })
+</script>
+</body>
+</html>
