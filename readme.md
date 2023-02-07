@@ -222,9 +222,6 @@
    7. [예시](https://github.com/annie309409/JavaScript/wiki/ajax#예시)
 </details>
 
-
-
-
 ## ⚙ 자바스크립트 알고리즘
 <details>
 <summary> 자연수의 연산</summary>
